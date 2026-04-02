@@ -349,3 +349,12 @@ export const getClaudeCodeVersionApi = () =>
   request({ url: '/admin/claude-code-version', method: 'GET' })
 export const clearClaudeCodeVersionApi = () =>
   request({ url: '/admin/claude-code-version/clear', method: 'POST' })
+
+// Admin API Keys
+export const getAdminApiKeysApi = () => request({ url: '/admin/admin-api-keys', method: 'GET' })
+export const createAdminApiKeyApi = (data) =>
+  request({ url: '/admin/admin-api-keys', method: 'POST', data })
+export const updateAdminApiKeyApi = (id, data) =>
+  request({ url: `/admin/admin-api-keys/${id}`, method: 'PUT', data })
+export const deleteAdminApiKeyApi = (id) =>
+  request({ url: `/admin/admin-api-keys/${id}`, method: 'DELETE' })

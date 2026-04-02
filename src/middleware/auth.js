@@ -1390,6 +1390,26 @@ const authenticateAdmin = async (req, res, next) => {
     ])
 
     if (!adminSession || Object.keys(adminSession).length === 0) {
+      // Try Admin API Key authentication (cra_ prefix)
+      if (typeof token === 'string' && token.startsWith('cra_')) {
+        const adminApiKeyService = require('../services/adminApiKeyService')
+        const keyData = await adminApiKeyService.validate(token)
+        if (keyData) {
+          req.admin = {
+            username: `apikey:${keyData.name}`,
+            sessionId: token,
+            loginTime: keyData.createdAt,
+            isApiKey: true
+          }
+          const authDuration = Date.now() - startTime
+          req._authInfo = `apikey:${keyData.name} ${authDuration}ms`
+          logger.security(
+            `Admin API Key authenticated: ${keyData.name} (${keyData.id}) in ${authDuration}ms`
+          )
+          return next()
+        }
+      }
+
       logger.security(`Invalid admin token attempt from ${req.ip || 'unknown'}`)
       return res.status(401).json({
         error: 'Invalid admin token',
