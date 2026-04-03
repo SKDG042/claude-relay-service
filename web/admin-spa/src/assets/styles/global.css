@@ -1,9 +1,9 @@
 /* 从原始 style.css 复制的全局样式 */
 :root {
   /* 亮色模式 */
-  --primary-color: #8DBDD4;
-  --secondary-color: #CFA3AD;
-  --accent-color: #A8C8DC;
+  --primary-color: #B5D5E5;
+  --secondary-color: #E0BFC7;
+  --accent-color: #C8DEE8;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
@@ -13,9 +13,9 @@
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --border-color: rgba(255, 255, 255, 0.2);
-  --bg-gradient-start: #e8f0f5;
-  --bg-gradient-mid: #f0eaed;
-  --bg-gradient-end: #f5e8ec;
+  --bg-gradient-start: #eef4f8;
+  --bg-gradient-mid: #f5eff1;
+  --bg-gradient-end: #f8eef1;
   --input-bg: rgba(255, 255, 255, 0.9);
   --input-border: rgba(209, 213, 219, 0.8);
   --modal-bg: rgba(0, 0, 0, 0.4);
@@ -25,9 +25,9 @@
 
 .dark {
   /* 暗黑模式 */
-  --primary-color: #9DC5D8;
-  --secondary-color: #D4B0B8;
-  --accent-color: #B5CFDB;
+  --primary-color: #8FB8CC;
+  --secondary-color: #C9A5AE;
+  --accent-color: #A3C4D2;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
