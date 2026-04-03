@@ -140,7 +140,7 @@ function mapToErrorCode(error, options = {}) {
   const result = ERROR_CODES[matchedCode]
   return {
     code: matchedCode,
-    message: result.message,
+    message: originalMessage || result.message,
     status: result.status
   }
 }

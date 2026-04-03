@@ -175,8 +175,8 @@
             取消
           </button>
           <button
-            :disabled="!createForm.name.trim() || creating"
             class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+            :disabled="!createForm.name.trim() || creating"
             @click="createKey"
           >
             <i v-if="creating" class="fas fa-spinner fa-spin mr-2"></i>
@@ -277,8 +277,8 @@
             取消
           </button>
           <button
-            :disabled="deleting"
             class="inline-flex items-center rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+            :disabled="deleting"
             @click="deleteKey"
           >
             <i v-if="deleting" class="fas fa-spinner fa-spin mr-2"></i>
