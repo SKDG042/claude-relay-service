@@ -840,6 +840,22 @@ class ClaudeAccountService {
 
       updatedData.updatedAt = new Date().toISOString()
 
+      // 如果关闭了 autoStopOnWarning，且账户之前因5小时限制被自动停止，恢复调度
+      if (
+        Object.prototype.hasOwnProperty.call(updates, 'autoStopOnWarning') &&
+        (updates.autoStopOnWarning === false || updates.autoStopOnWarning === 'false') &&
+        updatedData.fiveHourAutoStopped === 'true' &&
+        updatedData.schedulable === 'false'
+      ) {
+        logger.info(`✅ autoStopOnWarning disabled, restoring scheduling for account ${accountId}`)
+        updatedData.schedulable = 'true'
+        delete updatedData.fiveHourAutoStopped
+        delete updatedData.fiveHourStoppedAt
+        delete updatedData.stoppedReason
+        await this._clearFiveHourWarningMetadata(accountId, updatedData)
+        shouldClearAutoStopFields = true
+      }
+
       // 如果是手动修改调度状态，清除所有自动停止相关的字段
       if (Object.prototype.hasOwnProperty.call(updates, 'schedulable')) {
         // 清除所有自动停止的标记，防止自动恢复
