@@ -1,9 +1,9 @@
 /* 从原始 style.css 复制的全局样式 */
 :root {
   /* 亮色模式 */
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  --accent-color: #f093fb;
+  --primary-color: #6BB5E8;
+  --secondary-color: #E8A0B0;
+  --accent-color: #B5D8F7;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
@@ -13,9 +13,9 @@
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --border-color: rgba(255, 255, 255, 0.2);
-  --bg-gradient-start: #667eea;
-  --bg-gradient-mid: #764ba2;
-  --bg-gradient-end: #f093fb;
+  --bg-gradient-start: #e0f0fa;
+  --bg-gradient-mid: #f0e8f0;
+  --bg-gradient-end: #fce4ec;
   --input-bg: rgba(255, 255, 255, 0.9);
   --input-border: rgba(209, 213, 219, 0.8);
   --modal-bg: rgba(0, 0, 0, 0.4);
@@ -25,26 +25,26 @@
 
 .dark {
   /* 暗黑模式 */
-  --primary-color: #818cf8;
-  --secondary-color: #a78bfa;
-  --accent-color: #c084fc;
+  --primary-color: #8ECDF0;
+  --secondary-color: #F0B8C8;
+  --accent-color: #C8E4F8;
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
-  --surface-color: rgba(31, 41, 55, 0.95);
-  --glass-color: rgba(0, 0, 0, 0.2);
-  --glass-strong-color: rgba(31, 41, 55, 0.95);
+  --surface-color: rgba(26, 37, 48, 0.95);
+  --glass-color: rgba(0, 10, 20, 0.2);
+  --glass-strong-color: rgba(26, 37, 48, 0.95);
   --text-primary: #f3f4f6;
   --text-secondary: #9ca3af;
   --border-color: rgba(75, 85, 99, 0.3);
-  --bg-gradient-start: #1f2937;
-  --bg-gradient-mid: #374151;
-  --bg-gradient-end: #4b5563;
-  --input-bg: rgba(31, 41, 55, 0.9);
+  --bg-gradient-start: #1a2530;
+  --bg-gradient-mid: #2a3540;
+  --bg-gradient-end: #3a4550;
+  --input-bg: rgba(26, 37, 48, 0.9);
   --input-border: rgba(75, 85, 99, 0.5);
   --modal-bg: rgba(0, 0, 0, 0.6);
-  --table-bg: rgba(31, 41, 55, 0.95);
-  --table-hover: rgba(129, 140, 248, 0.1);
+  --table-bg: rgba(26, 37, 48, 0.95);
+  --table-hover: rgba(142, 205, 240, 0.1);
 }
 
 /* 覆盖 Tailwind v3 的暗黑模式背景色使用主题色 */
@@ -827,4 +827,24 @@ body::before {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Theme-aware gradient utilities */
+.bg-gradient-primary {
+  background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color)) !important;
+}
+.bg-gradient-primary-r {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important;
+}
+.bg-gradient-primary-accent {
+  background: linear-gradient(to bottom right, var(--primary-color), var(--accent-color)) !important;
+}
+.bg-gradient-secondary {
+  background: linear-gradient(to bottom right, var(--secondary-color), var(--accent-color)) !important;
+}
+.text-gradient-primary {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

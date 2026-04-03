@@ -11,26 +11,26 @@ export const ThemeMode = {
 // 中国传统色系预设
 export const ColorSchemes = {
   purple: {
-    name: '默认紫',
-    nameEn: 'Purple',
-    primary: '#667eea',
-    secondary: '#764ba2',
-    accent: '#f093fb',
-    gradientStart: '#667eea',
-    gradientMid: '#764ba2',
-    gradientEnd: '#f093fb',
+    name: '樱蓝粉',
+    nameEn: 'Sakura Blue',
+    primary: '#6BB5E8',
+    secondary: '#E8A0B0',
+    accent: '#B5D8F7',
+    gradientStart: '#e0f0fa',
+    gradientMid: '#f0e8f0',
+    gradientEnd: '#fce4ec',
     // 玻璃态背景色（亮色模式）
     glassStrong: 'rgba(255, 255, 255, 0.95)',
     glass: 'rgba(255, 255, 255, 0.1)',
     // 暗黑模式
-    darkPrimary: '#818cf8',
-    darkSecondary: '#a78bfa',
-    darkAccent: '#c084fc',
-    darkGradientStart: '#1f2937',
-    darkGradientMid: '#374151',
-    darkGradientEnd: '#4b5563',
-    darkGlassStrong: 'rgba(31, 41, 55, 0.95)',
-    darkGlass: 'rgba(0, 0, 0, 0.2)'
+    darkPrimary: '#8ECDF0',
+    darkSecondary: '#F0B8C8',
+    darkAccent: '#C8E4F8',
+    darkGradientStart: '#1a2530',
+    darkGradientMid: '#2a3540',
+    darkGradientEnd: '#3a4550',
+    darkGlassStrong: 'rgba(26, 37, 48, 0.95)',
+    darkGlass: 'rgba(0, 10, 20, 0.2)'
   },
   celadon: {
     name: '青瓷',
