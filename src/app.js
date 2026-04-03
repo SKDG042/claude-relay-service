@@ -71,6 +71,19 @@ class Application {
         logger.success(`✅ 数据迁移完成，版本: ${currentVersion}`)
       }
 
+      // 🐘 连接 PostgreSQL（使用日志，可选）
+      if (config.postgres?.enabled) {
+        try {
+          const postgres = require('./models/postgres')
+          await postgres.connect()
+          const usageLogService = require('./services/usageLogService')
+          usageLogService.initialize(postgres)
+          logger.success('PostgreSQL connected (usage logs enabled)')
+        } catch (pgErr) {
+          logger.warn('⚠️ PostgreSQL connection failed, usage logs disabled:', pgErr.message)
+        }
+      }
+
       // 📅 后台检查月份索引完整性（不阻塞启动）
       redis.ensureMonthlyMonthsIndex().catch((err) => {
         logger.error('📅 月份索引检查失败:', err.message)
@@ -903,6 +916,17 @@ class Application {
           } catch (error) {
             logger.error('❌ Error cleaning up concurrency counters:', error)
             // 不阻止退出流程
+          }
+
+          // 关闭 PostgreSQL 使用日志服务
+          try {
+            const usageLogService = require('./services/usageLogService')
+            await usageLogService.shutdown()
+            const postgres = require('./models/postgres')
+            await postgres.disconnect()
+            logger.info('🐘 PostgreSQL disconnected')
+          } catch (_pgErr) {
+            // PG 未启用时忽略
           }
 
           try {

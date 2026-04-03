@@ -1536,7 +1536,8 @@ class ApiKeyService {
     model = 'unknown',
     accountId = null,
     accountType = null,
-    serviceTier = null
+    serviceTier = null,
+    requestContext = {}
   ) {
     try {
       const totalTokens = inputTokens + outputTokens + cacheCreateTokens + cacheReadTokens
@@ -1654,6 +1655,38 @@ class ApiKeyService {
         realCostBreakdown: costInfo && costInfo.costs ? costInfo.costs : undefined
       })
 
+      // 记录到 PostgreSQL 使用日志（fire-and-forget）
+      try {
+        const usageLogService = require('./usageLogService')
+        usageLogService.logUsage({
+          requestId: requestContext.requestId,
+          httpMethod: requestContext.httpMethod,
+          endpoint: requestContext.endpoint,
+          model,
+          clientIp: requestContext.clientIp,
+          userAgent: requestContext.userAgent,
+          isStream: requestContext.isStream || false,
+          apiKeyId: keyId,
+          apiKeyName: requestContext.apiKeyName,
+          accountId,
+          accountType,
+          inputTokens,
+          outputTokens,
+          cacheCreationTokens: cacheCreateTokens,
+          cacheReadTokens,
+          totalTokens,
+          realCost: Number(realCost.toFixed(6)),
+          ratedCost: Number(ratedCost.toFixed(6)),
+          httpStatus: requestContext.httpStatus,
+          requestDurationMs: requestContext.requestDuration,
+          stopReason: requestContext.stopReason,
+          isLongContext: isLongContextRequest,
+          serviceTier
+        })
+      } catch (_pgErr) {
+        // PG 日志失败不影响主流程
+      }
+
       const logParts = [`Model: ${model}`, `Input: ${inputTokens}`, `Output: ${outputTokens}`]
       if (cacheCreateTokens > 0) {
         logParts.push(`Cache Create: ${cacheCreateTokens}`)
@@ -1710,7 +1743,8 @@ class ApiKeyService {
     usageObject,
     model = 'unknown',
     accountId = null,
-    accountType = null
+    accountType = null,
+    requestContext = {}
   ) {
     try {
       // 提取 token 数量
@@ -1909,6 +1943,38 @@ class ApiKeyService {
       }
 
       await redis.addUsageRecord(keyId, usageRecord)
+
+      // 记录到 PostgreSQL 使用日志（fire-and-forget）
+      try {
+        const usageLogService = require('./usageLogService')
+        usageLogService.logUsage({
+          requestId: requestContext.requestId,
+          httpMethod: requestContext.httpMethod,
+          endpoint: requestContext.endpoint,
+          model,
+          clientIp: requestContext.clientIp,
+          userAgent: requestContext.userAgent,
+          isStream: requestContext.isStream || false,
+          apiKeyId: keyId,
+          apiKeyName: requestContext.apiKeyName,
+          accountId,
+          accountType,
+          inputTokens,
+          outputTokens,
+          cacheCreationTokens: cacheCreateTokens,
+          cacheReadTokens,
+          totalTokens,
+          realCost: Number(realCostWithDetails.toFixed(6)),
+          ratedCost: Number(ratedCostWithDetails.toFixed(6)),
+          httpStatus: requestContext.httpStatus,
+          requestDurationMs: requestContext.requestDuration,
+          stopReason: requestContext.stopReason,
+          isLongContext: costInfo.isLongContextRequest || false,
+          serviceTier: requestContext.serviceTier
+        })
+      } catch (_pgErr) {
+        // PG 日志失败不影响主流程
+      }
 
       const logParts = [`Model: ${model}`, `Input: ${inputTokens}`, `Output: ${outputTokens}`]
       if (cacheCreateTokens > 0) {
