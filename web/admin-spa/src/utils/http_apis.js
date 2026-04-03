@@ -358,3 +358,13 @@ export const updateAdminApiKeyApi = (id, data) =>
   request({ url: `/admin/admin-api-keys/${id}`, method: 'PUT', data })
 export const deleteAdminApiKeyApi = (id) =>
   request({ url: `/admin/admin-api-keys/${id}`, method: 'DELETE' })
+
+// 使用日志
+export const getUsageLogsApi = (params) =>
+  request({ url: '/admin/usage-logs', method: 'GET', params })
+export const getUsageLogsStatsApi = (params) =>
+  request({ url: '/admin/usage-logs/stats', method: 'GET', params })
+export const exportUsageLogsApi = (params) =>
+  request({ url: '/admin/usage-logs/export', method: 'GET', params, responseType: 'blob' })
+export const cleanupUsageLogsApi = (data) =>
+  request({ url: '/admin/usage-logs/cleanup', method: 'DELETE', data })
