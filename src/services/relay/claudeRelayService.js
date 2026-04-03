@@ -195,9 +195,13 @@ class ClaudeRelayService {
   // Anthropic 对未开启 Extra Usage 的账户请求长上下文模型时返回此错误
   // 这不是真正的限流，不应标记账户为 rate limited
   _isExtraUsageRequired429(statusCode, body) {
-    if (statusCode !== 429) return false
+    if (statusCode !== 429) {
+      return false
+    }
     const message = this._extractErrorMessage(body)
-    if (!message) return false
+    if (!message) {
+      return false
+    }
     return message.toLowerCase().includes('extra usage')
   }
 
@@ -2373,8 +2377,8 @@ class ClaudeRelayService {
             }
           }
 
-          // 调用异步错误处理函数
-          handleErrorResponse().catch((err) => {
+          // 调用异步错误处理函数（存储 promise 以便在 failover 前 await）
+          const errorHandlingPromise = handleErrorResponse().catch((err) => {
             logger.error('❌ Error in stream error handler:', err)
           })
 
@@ -2448,6 +2452,26 @@ class ClaudeRelayService {
                 }
               })()
             }
+            // 🔄 流式故障转移：headers 未发送时，抛出 failover 错误让路由层重试
+            const FAILOVER_STATUS_CODES = new Set([401, 403, 429, 500, 502, 503, 529])
+            if (!responseStream.headersSent && FAILOVER_STATUS_CODES.has(res.statusCode)) {
+              // 等待错误处理完成（确保账户已标记不可用、session 已清除）
+              await errorHandlingPromise
+              const failoverError = new Error(
+                `[Stream] Account ${accountId} returned ${res.statusCode}, failover needed`
+              )
+              failoverError.code = 'ACCOUNT_FAILOVER_NEEDED'
+              failoverError.statusCode = res.statusCode
+              failoverError.accountId = accountId
+              failoverError.accountType = accountType
+              logger.warn(
+                `🔄 [Stream Failover] Account ${accountId} (${accountType}) returned ${res.statusCode}, ` +
+                  `signaling failover (headers not sent)`
+              )
+              reject(failoverError)
+              return
+            }
+
             if (isStreamWritable(responseStream)) {
               // 解析 Claude API 返回的错误详情
               let errorMessage = `Claude API error: ${res.statusCode}`

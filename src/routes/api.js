@@ -1166,6 +1166,26 @@ async function handleMessagesRequest(req, res) {
         )
       }
 
+      // 🔄 非流式故障转移：账户级错误自动重选账户重试
+      const FAILOVER_STATUS_CODES = new Set([401, 403, 429, 500, 502, 503, 529])
+      const failoverRetryCount = req._failoverRetryCount || 0
+      const MAX_FAILOVER_RETRIES = 2
+
+      if (
+        response &&
+        FAILOVER_STATUS_CODES.has(response.statusCode) &&
+        failoverRetryCount < MAX_FAILOVER_RETRIES &&
+        !res.headersSent
+      ) {
+        req._failoverRetryCount = failoverRetryCount + 1
+        logger.warn(
+          `🔄 [Failover] Account ${accountId} (${accountType}) returned ${response.statusCode}, ` +
+            `retry ${req._failoverRetryCount}/${MAX_FAILOVER_RETRIES} with different account`
+        )
+        // relay service already marked account temp unavailable and cleared session
+        return await handleMessagesRequest(req, res)
+      }
+
       logger.info('📡 Claude API response received', {
         statusCode: response.statusCode,
         headers: JSON.stringify(response.headers),
@@ -1312,6 +1332,36 @@ async function handleMessagesRequest(req, res) {
     return undefined
   } catch (error) {
     let handledError = error
+
+    // 🔄 流式故障转移：账户级错误自动重选账户重试
+    if (handledError.code === 'ACCOUNT_FAILOVER_NEEDED') {
+      const failoverRetryCount = req._failoverRetryCount || 0
+      const MAX_FAILOVER_RETRIES = 2
+
+      if (failoverRetryCount < MAX_FAILOVER_RETRIES && !res.headersSent) {
+        req._failoverRetryCount = failoverRetryCount + 1
+        logger.warn(
+          `🔄 [Failover] Account ${handledError.accountId} (${handledError.accountType}) ` +
+            `returned ${handledError.statusCode}, stream retry ${req._failoverRetryCount}/${MAX_FAILOVER_RETRIES}`
+        )
+        try {
+          return await handleMessagesRequest(req, res)
+        } catch (retryError) {
+          if (retryError.code === 'ACCOUNT_FAILOVER_NEEDED') {
+            logger.error(
+              `❌ [Failover] All retry attempts exhausted after ${req._failoverRetryCount} failovers`
+            )
+          }
+          handledError = retryError
+        }
+      } else if (res.headersSent) {
+        logger.error('❌ [Failover] Cannot retry - response headers already sent')
+        if (!res.destroyed && !res.finished) {
+          res.end()
+        }
+        return undefined
+      }
+    }
 
     // 🔄 并发满额降级处理：捕获CONSOLE_ACCOUNT_CONCURRENCY_FULL错误
     if (
