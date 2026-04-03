@@ -1143,8 +1143,7 @@ class ClaudeRelayService {
       }
     }
 
-    // 移除 x-anthropic-billing-header 系统元素，避免将客户端 billing 标识传递给上游 API
-    this._removeBillingHeaderFromSystem(processedBody)
+    // 保留 billing header 用于 cch 计算（不再移除）
 
     this._enforceCacheControlLimit(processedBody)
 
@@ -1512,8 +1511,10 @@ class ClaudeRelayService {
       })
     }
 
-    // 序列化请求体，计算 content-length
-    const bodyString = JSON.stringify(requestPayload)
+    // 序列化请求体，计算 cch 并注入
+    const cchCalculator = require('../../utils/cchCalculator')
+    const cchBody = await cchCalculator.injectCch(requestPayload)
+    const bodyString = cchBody || JSON.stringify(requestPayload)
     const contentLength = Buffer.byteLength(bodyString, 'utf8')
 
     // 构建最终请求头（包含认证、版本、User-Agent、Beta 等）

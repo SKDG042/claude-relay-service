@@ -84,6 +84,14 @@ class Application {
         }
       }
 
+      // 🔑 预初始化 xxhash-wasm（用于 cch 计算）
+      try {
+        const cchCalculator = require('./utils/cchCalculator')
+        await cchCalculator.ensureInitialized()
+      } catch (cchErr) {
+        logger.warn('⚠️ cch calculator init failed:', cchErr.message)
+      }
+
       // 📅 后台检查月份索引完整性（不阻塞启动）
       redis.ensureMonthlyMonthsIndex().catch((err) => {
         logger.error('📅 月份索引检查失败:', err.message)
