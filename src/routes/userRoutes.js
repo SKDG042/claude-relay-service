@@ -766,6 +766,7 @@ router.get('/admin/ldap-test', authenticateUserOrAdmin, requireAdmin, async (req
 // ═══════════════════════════════════════════════════════════════════════════
 
 const quotaCardService = require('../services/quotaCardService')
+const usageLogService = require('../services/usageLogService')
 
 // 🎫 核销额度卡
 router.post('/redeem-card', authenticateUser, async (req, res) => {
@@ -919,6 +920,61 @@ router.get('/quota-info', authenticateUser, async (req, res) => {
     res.status(500).json({
       error: 'Failed to get quota info',
       message: error.message
+    })
+  }
+})
+
+// 📋 查询用户自己 API Key 的使用日志
+router.post('/usage-logs', authenticateUser, async (req, res) => {
+  try {
+    const { apiKeyId, page = 1, pageSize = 20, startTime, endTime, model } = req.body
+
+    if (!apiKeyId) {
+      return res.status(400).json({
+        error: 'Missing apiKeyId',
+        message: 'apiKeyId is required'
+      })
+    }
+
+    // 验证 API Key 属于当前用户
+    const keyData = await redis.getApiKey(apiKeyId)
+    if (!keyData || Object.keys(keyData).length === 0) {
+      return res.status(404).json({
+        error: 'API key not found',
+        message: 'The specified API key does not exist'
+      })
+    }
+
+    if (keyData.userId !== req.user.id) {
+      return res.status(403).json({
+        error: 'Forbidden',
+        message: 'You can only view logs for your own API keys'
+      })
+    }
+
+    const filters = {}
+    if (startTime) {
+      filters.startTime = startTime
+    }
+    if (endTime) {
+      filters.endTime = endTime
+    }
+    if (model) {
+      filters.model = model
+    }
+
+    const result = await usageLogService.queryLogsByApiKey(apiKeyId, {
+      filters,
+      page: parseInt(page),
+      pageSize: parseInt(pageSize)
+    })
+
+    return res.json({ success: true, data: result })
+  } catch (error) {
+    logger.error('❌ Get user usage logs error:', error)
+    return res.status(500).json({
+      error: 'Usage logs error',
+      message: 'Failed to retrieve usage logs'
     })
   }
 })
