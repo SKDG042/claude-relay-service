@@ -12,7 +12,7 @@
         <div class="mb-4 flex items-center justify-between sm:mb-6">
           <div class="flex items-center gap-2 sm:gap-3">
             <div
-              class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 sm:h-10 sm:w-10 sm:rounded-xl"
+              class="bg-gradient-primary flex h-8 w-8 items-center justify-center rounded-lg sm:h-10 sm:w-10 sm:rounded-xl"
             >
               <i class="fas fa-chart-line text-sm text-white sm:text-base" />
             </div>
@@ -31,11 +31,11 @@
           <div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
             <!-- 请求统计卡片 -->
             <div
-              class="rounded-lg border border-blue-200 bg-gradient-to-br from-blue-50 to-blue-100 p-4 dark:border-blue-700 dark:from-blue-900/20 dark:to-blue-800/20"
+              class="rounded-lg border border-sky-200 bg-gradient-to-br from-sky-50 to-sky-100 p-4 dark:border-sky-700 dark:from-sky-900/20 dark:to-sky-800/20"
             >
               <div class="mb-3 flex items-center justify-between">
                 <span class="text-sm font-medium text-gray-700 dark:text-gray-300">总请求数</span>
-                <i class="fas fa-paper-plane text-blue-500" />
+                <i class="fas fa-paper-plane text-sky-500" />
               </div>
               <div class="text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {{ formatNumber(totalRequests) }}
@@ -118,7 +118,7 @@
               </div>
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
-                  <i class="fas fa-arrow-up mr-2 text-blue-500" />
+                  <i class="fas fa-arrow-up mr-2 text-sky-500" />
                   <span class="text-sm text-gray-600 dark:text-gray-400">输出 Token</span>
                 </div>
                 <span class="text-sm font-semibold text-gray-900 dark:text-gray-100">
@@ -214,7 +214,7 @@
                 class="space-y-2"
               >
                 <h5 class="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  <i class="fas fa-clock mr-1 text-blue-500" />
+                  <i class="fas fa-clock mr-1 text-sky-500" />
                   时间窗口限制
                 </h5>
                 <div

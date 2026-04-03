@@ -245,7 +245,7 @@
             :class="[
               'rounded-lg px-4 py-2 text-sm font-medium transition-all',
               quotaSubTab === 'redeem'
-                ? 'bg-blue-500 text-white'
+                ? 'bg-sky-500 text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
             ]"
             @click="quotaSubTab = 'redeem'"
@@ -257,7 +257,7 @@
             :class="[
               'rounded-lg px-4 py-2 text-sm font-medium transition-all',
               quotaSubTab === 'history'
-                ? 'bg-blue-500 text-white'
+                ? 'bg-sky-500 text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
             ]"
             @click="switchToHistorySubTab"
@@ -276,7 +276,7 @@
               <p>请先在「统计查询」页面输入您的 API Key</p>
             </div>
             <button
-              class="rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2.5 font-medium text-white transition-all hover:from-blue-600 hover:to-cyan-600"
+              class="bg-gradient-primary-r rounded-xl px-6 py-2.5 font-medium text-white transition-all"
               @click="currentTab = 'stats'"
             >
               前往输入 API Key
@@ -299,7 +299,7 @@
                 </label>
                 <input
                   v-model="redeemCode"
-                  class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-500"
+                  class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-500"
                   placeholder="请输入额度卡卡号"
                   type="text"
                   @keyup.enter="handleRedeem"
@@ -386,7 +386,7 @@
               <p>请先在「统计查询」页面输入您的 API Key</p>
             </div>
             <button
-              class="rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2.5 font-medium text-white transition-all hover:from-blue-600 hover:to-cyan-600"
+              class="bg-gradient-primary-r rounded-xl px-6 py-2.5 font-medium text-white transition-all"
               @click="currentTab = 'stats'"
             >
               前往输入 API Key
@@ -507,13 +507,13 @@
             <label class="mb-4 flex cursor-pointer items-center gap-2">
               <input
                 v-model="dontShowAgain"
-                class="h-4 w-4 rounded border-gray-300 text-blue-500 focus:ring-blue-500"
+                class="h-4 w-4 rounded border-gray-300 text-sky-400 focus:ring-sky-400"
                 type="checkbox"
               />
               <span class="text-sm text-gray-600 dark:text-gray-400">本次会话不再显示</span>
             </label>
             <button
-              class="w-full rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2.5 font-medium text-white transition-all hover:from-blue-600 hover:to-cyan-600"
+              class="bg-gradient-primary-r w-full rounded-xl px-4 py-2.5 font-medium text-white transition-all"
               @click="dismissNotice"
             >
               知道了

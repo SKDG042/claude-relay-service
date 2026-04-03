@@ -17,7 +17,7 @@
               活跃: {{ dashboardData.activeApiKeys || 0 }}
             </p>
           </div>
-          <div class="stat-icon flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600">
+          <div class="stat-icon bg-gradient-primary flex-shrink-0">
             <i class="fas fa-key" />
           </div>
         </div>
@@ -170,7 +170,7 @@
               总请求: {{ formatNumber(dashboardData.totalRequests || 0) }}
             </p>
           </div>
-          <div class="stat-icon flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-600">
+          <div class="stat-icon bg-gradient-secondary flex-shrink-0">
             <i class="fas fa-chart-line" />
           </div>
         </div>
@@ -306,7 +306,7 @@
               今日Token
             </p>
             <div class="mb-2 flex flex-wrap items-baseline gap-2">
-              <p class="text-xl font-bold text-blue-600 sm:text-2xl md:text-3xl">
+              <p class="text-xl font-bold text-sky-600 sm:text-2xl md:text-3xl">
                 {{
                   formatNumber(
                     (dashboardData.todayInputTokens || 0) +
@@ -349,7 +349,7 @@
               </div>
             </div>
           </div>
-          <div class="stat-icon flex-shrink-0 bg-gradient-to-br from-indigo-500 to-indigo-600">
+          <div class="stat-icon bg-gradient-primary flex-shrink-0">
             <i class="fas fa-coins" />
           </div>
         </div>
@@ -475,7 +475,7 @@
               :class="[
                 'rounded-md px-3 py-1 text-sm font-medium transition-colors',
                 dateFilter.preset === option.value && dateFilter.type === 'preset'
-                  ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                  ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
               ]"
               @click="setDateFilterPreset(option.value)"
@@ -490,7 +490,7 @@
               :class="[
                 'rounded-md px-3 py-1 text-sm font-medium transition-colors',
                 trendGranularity === 'day'
-                  ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                  ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
               ]"
               @click="setTrendGranularity('day')"
@@ -501,7 +501,7 @@
               :class="[
                 'rounded-md px-3 py-1 text-sm font-medium transition-colors',
                 trendGranularity === 'hour'
-                  ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                  ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
               ]"
               @click="setTrendGranularity('hour')"
@@ -540,7 +540,7 @@
                 <input v-model="autoRefreshEnabled" class="peer sr-only" type="checkbox" />
                 <!-- 更小的开关 -->
                 <div
-                  class="peer relative h-5 w-9 rounded-full bg-gray-300 transition-all duration-200 after:absolute after:left-[2px] after:top-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-sm after:transition-transform after:duration-200 after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-4 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 dark:bg-gray-600 dark:after:bg-gray-300 dark:peer-focus:ring-blue-600"
+                  class="peer relative h-5 w-9 rounded-full bg-gray-300 transition-all duration-200 after:absolute after:left-[2px] after:top-0.5 after:h-4 after:w-4 after:rounded-full after:bg-white after:shadow-sm after:transition-transform after:duration-200 after:content-[''] peer-checked:bg-sky-400 peer-checked:after:translate-x-4 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-sky-300 dark:bg-gray-600 dark:after:bg-gray-300 dark:peer-focus:ring-sky-500"
                 />
                 <span
                   class="ml-2.5 flex select-none items-center gap-1 text-sm font-medium text-gray-600 dark:text-gray-300"
@@ -549,7 +549,7 @@
                   <span>自动刷新</span>
                   <span
                     v-if="autoRefreshEnabled"
-                    class="ml-1 font-mono text-xs text-blue-600 transition-opacity"
+                    class="ml-1 font-mono text-xs text-sky-600 transition-opacity"
                     :class="refreshCountdown > 0 ? 'opacity-100' : 'opacity-0'"
                   >
                     {{ refreshCountdown }}s
@@ -560,7 +560,7 @@
 
             <!-- 刷新按钮 -->
             <button
-              class="flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm font-medium text-blue-600 shadow-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 sm:gap-2"
+              class="flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-1 text-sm font-medium text-sky-600 shadow-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:hover:bg-gray-700 sm:gap-2"
               :disabled="isRefreshing"
               title="立即刷新数据"
               @click="refreshAllData()"
@@ -687,7 +687,7 @@
               :class="[
                 'rounded-md px-2 py-1 text-xs font-medium transition-colors sm:px-3 sm:text-sm',
                 apiKeysTrendMetric === 'requests'
-                  ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                  ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
               ]"
               @click="((apiKeysTrendMetric = 'requests'), updateApiKeysUsageTrendChart())"
@@ -699,7 +699,7 @@
               :class="[
                 'rounded-md px-2 py-1 text-xs font-medium transition-colors sm:px-3 sm:text-sm',
                 apiKeysTrendMetric === 'tokens'
-                  ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                  ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
               ]"
               @click="((apiKeysTrendMetric = 'tokens'), updateApiKeysUsageTrendChart())"
@@ -741,7 +741,7 @@
                 :class="[
                   'rounded-md px-2 py-1 text-xs font-medium transition-colors sm:px-3 sm:text-sm',
                   accountUsageGroup === option.value
-                    ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                    ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                     : 'text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100'
                 ]"
                 @click="handleAccountUsageGroupChange(option.value)"

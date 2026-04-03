@@ -13,7 +13,7 @@
             </p>
           </div>
           <button
-            class="inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            class="inline-flex items-center rounded-md bg-sky-500 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
             @click="showCreateModal = true"
           >
             <i class="fas fa-plus mr-2" />
@@ -33,7 +33,7 @@
                   {{ stats.total }}
                 </p>
               </div>
-              <div class="stat-icon flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-600">
+              <div class="stat-icon bg-gradient-primary flex-shrink-0">
                 <i class="fas fa-ticket-alt" />
               </div>
             </div>
@@ -65,7 +65,7 @@
                   {{ stats.redeemed }}
                 </p>
               </div>
-              <div class="stat-icon flex-shrink-0 bg-gradient-to-br from-purple-500 to-purple-600">
+              <div class="stat-icon bg-gradient-secondary flex-shrink-0">
                 <i class="fas fa-exchange-alt" />
               </div>
             </div>
@@ -103,7 +103,7 @@
                   @change="saveLimitsConfig"
                 />
                 <div
-                  class="peer h-5 w-9 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full dark:bg-gray-600"
+                  class="peer h-5 w-9 rounded-full bg-gray-300 after:absolute after:left-[2px] after:top-[2px] after:h-4 after:w-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full dark:bg-gray-600"
                 />
               </label>
             </div>
@@ -143,7 +143,7 @@
               :class="[
                 'whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium',
                 activeTab === tab.id
-                  ? 'border-blue-500 text-blue-600'
+                  ? 'border-sky-500 text-sky-600'
                   : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-300'
               ]"
               @click="activeTab = tab.id"
@@ -519,7 +519,7 @@
           <div class="mb-6 flex items-center justify-between">
             <div class="flex items-center gap-3">
               <div
-                class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600"
+                class="bg-gradient-primary flex h-10 w-10 items-center justify-center rounded-xl"
               >
                 <i class="fas fa-ticket-alt text-white" />
               </div>
@@ -620,7 +620,7 @@
               取消
             </button>
             <button
-              class="flex-1 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2.5 font-medium text-white shadow-sm transition-colors hover:from-blue-600 hover:to-blue-700 disabled:opacity-50"
+              class="bg-gradient-primary-r flex-1 rounded-xl px-4 py-2.5 font-medium text-white shadow-sm transition-colors disabled:opacity-50"
               :disabled="creating"
               type="button"
               @click="createCard"
@@ -702,7 +702,7 @@
           <!-- Actions -->
           <div class="flex gap-3">
             <button
-              class="flex-1 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2.5 font-medium text-white shadow-sm transition-colors hover:from-blue-600 hover:to-blue-700"
+              class="bg-gradient-primary-r flex-1 rounded-xl px-4 py-2.5 font-medium text-white shadow-sm transition-colors"
               type="button"
               @click="downloadCards"
             >
@@ -736,7 +736,7 @@
             </label>
             <input
               v-model="revokeReason"
-              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+              class="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-sky-400 focus:outline-none focus:ring-1 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               placeholder="请输入撤销原因"
               type="text"
             />

@@ -16,7 +16,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'branding'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'branding'"
@@ -28,7 +28,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'webhook'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'webhook'"
@@ -40,7 +40,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'claude'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'claude'"
@@ -52,7 +52,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'serviceRates'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'serviceRates'"
@@ -64,7 +64,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'modelPricing'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'modelPricing'"
@@ -76,7 +76,7 @@
             :class="[
               'border-b-2 pb-2 text-sm font-medium transition-colors',
               activeSection === 'adminApiKeys'
-                ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                ? 'border-sky-500 text-sky-600 dark:border-sky-400 dark:text-sky-400'
                 : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'
             ]"
             @click="activeSection = 'adminApiKeys'"
@@ -106,7 +106,7 @@
                   <td class="w-48 whitespace-nowrap px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600"
+                        class="bg-gradient-primary mr-3 flex h-8 w-8 items-center justify-center rounded-lg"
                       >
                         <i class="fas fa-font text-xs text-white" />
                       </div>
@@ -137,7 +137,7 @@
                   <td class="w-48 whitespace-nowrap px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-purple-500 to-purple-600"
+                        class="bg-gradient-secondary mr-3 flex h-8 w-8 items-center justify-center rounded-lg"
                       >
                         <i class="fas fa-image text-xs text-white" />
                       </div>
@@ -200,7 +200,7 @@
                   <td class="w-48 whitespace-nowrap px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="mr-3 flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600"
+                        class="bg-gradient-primary mr-3 flex h-8 w-8 items-center justify-center rounded-lg"
                       >
                         <i class="fas fa-eye-slash text-xs text-white" />
                       </div>
@@ -217,7 +217,7 @@
                       <label class="inline-flex cursor-pointer items-center">
                         <input v-model="hideAdminButton" class="peer sr-only" type="checkbox" />
                         <div
-                          class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+                          class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-700"
                         ></div>
                         <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">{{
                           hideAdminButton ? '隐藏登录按钮' : '显示登录按钮'
@@ -256,7 +256,7 @@
                           type="checkbox"
                         />
                         <div
-                          class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+                          class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-700"
                         ></div>
                         <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">{{
                           oemSettings.apiStatsNotice.enabled ? '已启用' : '已禁用'
@@ -338,7 +338,7 @@
             <div class="glass-card p-4">
               <div class="mb-3 flex items-center gap-3">
                 <div
-                  class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 text-white shadow-md"
+                  class="bg-gradient-primary flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-white shadow-md"
                 >
                   <i class="fas fa-tag"></i>
                 </div>
@@ -360,7 +360,7 @@
             <div class="glass-card p-4">
               <div class="mb-3 flex items-center gap-3">
                 <div
-                  class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 text-white shadow-md"
+                  class="bg-gradient-secondary flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-white shadow-md"
                 >
                   <i class="fas fa-image"></i>
                 </div>
@@ -419,7 +419,7 @@
             <div class="glass-card p-4">
               <div class="mb-3 flex items-center gap-3">
                 <div
-                  class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md"
+                  class="bg-gradient-primary flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-white shadow-md"
                 >
                   <i class="fas fa-eye-slash"></i>
                 </div>
@@ -432,7 +432,7 @@
                 <label class="inline-flex cursor-pointer items-center">
                   <input v-model="hideAdminButton" class="peer sr-only" type="checkbox" />
                   <div
-                    class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+                    class="peer relative h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-700"
                   ></div>
                   <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">{{
                     hideAdminButton ? '隐藏登录按钮' : '显示登录按钮'
@@ -500,7 +500,7 @@
                   @change="saveWebhookConfig"
                 />
                 <div
-                  class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+                  class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-700"
                 ></div>
               </label>
             </div>
@@ -547,7 +547,7 @@
             <div class="mb-4 flex items-center justify-between">
               <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">通知平台</h2>
               <button
-                class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                class="rounded-lg bg-sky-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-600"
                 @click="showAddPlatformModal = true"
               >
                 <i class="fas fa-plus mr-2"></i>
@@ -649,7 +649,7 @@
                     </label>
                     <!-- 测试按钮 -->
                     <button
-                      class="rounded-lg bg-blue-100 p-2 text-blue-600 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800"
+                      class="rounded-lg bg-sky-100 p-2 text-sky-600 transition-colors hover:bg-sky-200 dark:bg-sky-900 dark:text-sky-400 dark:hover:bg-sky-800"
                       title="测试连接"
                       @click="testPlatform(platform)"
                     >
@@ -690,7 +690,7 @@
                 </label>
                 <input
                   v-model.number="webhookConfig.retrySettings.maxRetries"
-                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
+                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-sky-400 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
                   max="10"
                   min="0"
                   type="number"
@@ -703,7 +703,7 @@
                 </label>
                 <input
                   v-model.number="webhookConfig.retrySettings.retryDelay"
-                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
+                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-sky-400 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
                   max="10000"
                   min="100"
                   step="100"
@@ -717,7 +717,7 @@
                 </label>
                 <input
                   v-model.number="webhookConfig.retrySettings.timeout"
-                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
+                  class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-sky-400 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white sm:text-sm"
                   max="30000"
                   min="1000"
                   step="1000"
@@ -812,7 +812,7 @@
                 <div>
                   <div class="flex items-center">
                     <div
-                      class="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white shadow-lg"
+                      class="bg-gradient-primary mr-3 flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg"
                     >
                       <i class="fas fa-link"></i>
                     </div>
@@ -1003,7 +1003,7 @@
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
                   <div
-                    class="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg"
+                    class="bg-gradient-primary flex h-12 w-12 items-center justify-center rounded-lg text-white shadow-lg"
                   >
                     <i class="fas fa-layer-group text-xl"></i>
                   </div>
@@ -1024,7 +1024,7 @@
                     @change="saveClaudeConfig"
                   />
                   <div
-                    class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"
+                    class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-sky-400 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-sky-300 dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-sky-700"
                   ></div>
                 </label>
               </div>
@@ -1039,7 +1039,7 @@
                   </label>
                   <input
                     v-model.number="claudeConfig.concurrentRequestQueueMaxSize"
-                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                     max="100"
                     min="1"
                     placeholder="3"
@@ -1059,7 +1059,7 @@
                   </label>
                   <input
                     v-model.number="claudeConfig.concurrentRequestQueueMaxSizeMultiplier"
-                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                     max="10"
                     min="0"
                     placeholder="1"
@@ -1080,7 +1080,7 @@
                   </label>
                   <input
                     v-model.number="claudeConfig.concurrentRequestQueueTimeoutMs"
-                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
+                    class="mt-1 block w-full max-w-xs rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-500 dark:bg-gray-700 dark:text-white sm:text-sm"
                     max="300000"
                     min="5000"
                     placeholder="10000"
@@ -1093,15 +1093,13 @@
                 </div>
               </div>
 
-              <div class="mt-4 rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+              <div class="mt-4 rounded-lg bg-sky-50 p-4 dark:bg-sky-900/20">
                 <div class="flex">
-                  <i class="fas fa-info-circle mt-0.5 text-blue-500"></i>
+                  <i class="fas fa-info-circle mt-0.5 text-sky-500"></i>
                   <div class="ml-3">
-                    <p class="text-sm text-blue-700 dark:text-blue-300">
+                    <p class="text-sm text-sky-700 dark:text-sky-300">
                       <strong>工作原理：</strong>当 API Key 的并发请求超过
-                      <code class="rounded bg-blue-100 px-1 dark:bg-blue-800"
-                        >concurrencyLimit</code
-                      >
+                      <code class="rounded bg-sky-100 px-1 dark:bg-sky-800">concurrencyLimit</code>
                       时，超限请求会进入队列等待而非直接返回 429。适合 Claude Code Agent
                       并行工具调用场景。
                     </p>
@@ -1135,11 +1133,11 @@
           <div v-else>
             <!-- 说明卡片 -->
             <div
-              class="mb-6 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-6 dark:from-blue-900/20 dark:to-indigo-900/20"
+              class="mb-6 rounded-lg bg-gradient-to-r from-sky-50 to-pink-50 p-6 dark:from-sky-900/20 dark:to-pink-900/20"
             >
               <div class="flex items-start">
                 <div
-                  class="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-500 text-white"
+                  class="mr-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-sky-500 text-white"
                 >
                   <i class="fas fa-info"></i>
                 </div>
@@ -1161,11 +1159,11 @@
             <div class="rounded-lg bg-white/80 p-6 shadow-lg backdrop-blur-sm dark:bg-gray-800/80">
               <div class="mb-4 flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                  <i class="fas fa-sliders-h mr-2 text-blue-500"></i>
+                  <i class="fas fa-sliders-h mr-2 text-sky-500"></i>
                   倍率配置
                 </h2>
                 <button
-                  class="rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-blue-600 disabled:opacity-50"
+                  class="rounded-lg bg-sky-500 px-4 py-2 text-sm font-medium text-white hover:bg-sky-600 disabled:opacity-50"
                   :disabled="serviceRatesSaving"
                   @click="saveServiceRates"
                 >
@@ -1195,7 +1193,7 @@
                         {{ service }}
                         <span
                           v-if="service === serviceRates.baseService"
-                          class="ml-2 rounded bg-blue-100 px-1.5 py-0.5 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300"
+                          class="ml-2 rounded bg-sky-100 px-1.5 py-0.5 text-sky-700 dark:bg-sky-900/50 dark:text-sky-300"
                         >
                           基准服务
                         </span>
@@ -1256,12 +1254,12 @@
     >
       <!-- 头部 -->
       <div
-        class="dark:to-gray-750 relative border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50 px-6 py-5 dark:border-gray-700 dark:from-gray-800"
+        class="dark:to-gray-750 relative border-b border-gray-200 bg-gradient-to-r from-sky-50 to-pink-50 px-6 py-5 dark:border-gray-700 dark:from-gray-800"
       >
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-3">
             <div
-              class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg"
+              class="bg-gradient-primary flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg"
             >
               <i class="fas fa-bell"></i>
             </div>
@@ -1297,7 +1295,7 @@
             <div class="relative">
               <select
                 v-model="platformForm.type"
-                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 :disabled="editingPlatform"
               >
                 <option value="wechat_work">🟢 企业微信</option>
@@ -1331,7 +1329,7 @@
             </label>
             <input
               v-model="platformForm.name"
-              class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+              class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
               placeholder="例如：运维群通知、开发测试群"
               type="text"
             />
@@ -1355,7 +1353,7 @@
             <div class="relative">
               <input
                 v-model="platformForm.url"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 :class="{
                   'border-red-500 focus:border-red-500 focus:ring-red-500/20': urlError,
                   'border-green-500 focus:border-green-500 focus:ring-green-500/20': urlValid
@@ -1374,10 +1372,10 @@
             </div>
             <div
               v-if="getWebhookHint(platformForm.type)"
-              class="mt-2 flex items-start rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20"
+              class="mt-2 flex items-start rounded-lg bg-sky-50 p-3 dark:bg-sky-900/20"
             >
-              <i class="fas fa-info-circle mr-2 mt-0.5 text-blue-600 dark:text-blue-400"></i>
-              <p class="text-sm text-blue-700 dark:text-blue-300">
+              <i class="fas fa-info-circle mr-2 mt-0.5 text-sky-600 dark:text-sky-400"></i>
+              <p class="text-sm text-sky-700 dark:text-sky-300">
                 {{ getWebhookHint(platformForm.type) }}
               </p>
             </div>
@@ -1395,7 +1393,7 @@
               </label>
               <input
                 v-model="platformForm.botToken"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="例如：123456789:ABCDEFghijk-xyz"
                 required
                 type="text"
@@ -1415,7 +1413,7 @@
               </label>
               <input
                 v-model="platformForm.chatId"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="例如：123456789 或 -1001234567890"
                 required
                 type="text"
@@ -1435,7 +1433,7 @@
               </label>
               <input
                 v-model="platformForm.apiBaseUrl"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="默认: https://api.telegram.org"
                 type="url"
               />
@@ -1454,7 +1452,7 @@
               </label>
               <input
                 v-model="platformForm.proxyUrl"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="例如：socks5://user:pass@127.0.0.1:1080"
                 type="text"
               />
@@ -1464,7 +1462,7 @@
             </div>
 
             <div
-              class="flex items-start rounded-lg bg-blue-50 p-3 text-sm text-blue-700 dark:bg-blue-900/20 dark:text-blue-300"
+              class="flex items-start rounded-lg bg-sky-50 p-3 text-sm text-sky-700 dark:bg-sky-900/20 dark:text-sky-300"
             >
               <i class="fas fa-info-circle mr-2 mt-0.5"></i>
               <div>机器人需先加入对应群组或频道并授予发送消息权限，通知会以纯文本方式发送。</div>
@@ -1484,7 +1482,7 @@
               </label>
               <input
                 v-model="platformForm.deviceKey"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="例如：aBcDeFgHiJkLmNoPqRsTuVwX"
                 required
                 type="text"
@@ -1505,7 +1503,7 @@
               </label>
               <input
                 v-model="platformForm.serverUrl"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="默认: https://api.day.app/push"
                 type="url"
               />
@@ -1521,7 +1519,7 @@
               </label>
               <select
                 v-model="platformForm.level"
-                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">自动（根据通知类型）</option>
                 <option value="passive">被动</option>
@@ -1541,7 +1539,7 @@
               </label>
               <select
                 v-model="platformForm.sound"
-                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               >
                 <option value="">自动（根据通知类型）</option>
                 <option value="default">默认</option>
@@ -1566,16 +1564,16 @@
               </label>
               <input
                 v-model="platformForm.group"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="默认: claude-relay"
                 type="text"
               />
             </div>
 
             <!-- 提示信息 -->
-            <div class="mt-2 flex items-start rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
-              <i class="fas fa-info-circle mr-2 mt-0.5 text-blue-600 dark:text-blue-400"></i>
-              <div class="text-sm text-blue-700 dark:text-blue-300">
+            <div class="mt-2 flex items-start rounded-lg bg-sky-50 p-3 dark:bg-sky-900/20">
+              <i class="fas fa-info-circle mr-2 mt-0.5 text-sky-600 dark:text-sky-400"></i>
+              <div class="text-sm text-sky-700 dark:text-sky-300">
                 <p>1. 在iPhone上安装Bark App</p>
                 <p>2. 打开App获取您的设备密钥</p>
                 <p>3. 将密钥粘贴到上方输入框</p>
@@ -1596,7 +1594,7 @@
               </label>
               <input
                 v-model="platformForm.host"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="例如: smtp.gmail.com"
                 required
                 type="text"
@@ -1614,7 +1612,7 @@
                 </label>
                 <input
                   v-model.number="platformForm.port"
-                  class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                   max="65535"
                   min="1"
                   placeholder="587"
@@ -1634,7 +1632,7 @@
                 </label>
                 <select
                   v-model="platformForm.secure"
-                  class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                  class="w-full appearance-none rounded-xl border border-gray-300 bg-white px-4 py-3 pr-10 text-gray-900 shadow-sm transition-all focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                 >
                   <option :value="false">STARTTLS (端口587)</option>
                   <option :value="true">SSL/TLS (端口465)</option>
@@ -1653,7 +1651,7 @@
               </label>
               <input
                 v-model="platformForm.user"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="user@example.com"
                 required
                 type="email"
@@ -1671,7 +1669,7 @@
               </label>
               <input
                 v-model="platformForm.pass"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="邮箱密码或应用专用密码"
                 required
                 type="password"
@@ -1692,7 +1690,7 @@
               </label>
               <input
                 v-model="platformForm.from"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="默认使用用户名邮箱"
                 type="email"
               />
@@ -1709,7 +1707,7 @@
               </label>
               <input
                 v-model="platformForm.to"
-                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
+                class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-500"
                 placeholder="admin@example.com"
                 required
                 type="email"
@@ -1729,7 +1727,7 @@
                   <input
                     id="enableSign"
                     v-model="platformForm.enableSign"
-                    class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-0"
+                    class="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-2 focus:ring-sky-400 focus:ring-offset-0"
                     type="checkbox"
                   />
                   <span
@@ -1760,7 +1758,7 @@
                   </label>
                   <input
                     v-model="platformForm.secret"
-                    class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500"
+                    class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 font-mono text-sm text-gray-900 shadow-sm transition-all placeholder:text-gray-400 focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500"
                     placeholder="SEC..."
                     type="text"
                   />
@@ -1789,7 +1787,7 @@
               取消
             </button>
             <button
-              class="group flex items-center rounded-xl border border-blue-200 bg-blue-50 px-4 py-2.5 text-sm font-medium text-blue-700 shadow-sm transition-all hover:bg-blue-100 hover:shadow-md dark:border-blue-800 dark:bg-blue-900/50 dark:text-blue-300 dark:hover:bg-blue-900/70"
+              class="group flex items-center rounded-xl border border-sky-200 bg-sky-50 px-4 py-2.5 text-sm font-medium text-sky-700 shadow-sm transition-all hover:bg-sky-100 hover:shadow-md dark:border-sky-800 dark:bg-sky-900/50 dark:text-sky-300 dark:hover:bg-sky-900/70"
               :disabled="testingConnection"
               @click="testPlatformForm"
             >
@@ -1802,7 +1800,7 @@
               {{ testingConnection ? '测试中...' : '测试连接' }}
             </button>
             <button
-              class="group flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow-md transition-all hover:from-blue-700 hover:to-indigo-700 hover:shadow-lg disabled:cursor-not-allowed disabled:from-gray-400 disabled:to-gray-500"
+              class="bg-gradient-primary-r group flex items-center rounded-xl px-5 py-2.5 text-sm font-medium text-white shadow-md transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
               :disabled="!isPlatformFormValid || savingPlatform"
               @click="savePlatform"
             >
@@ -2963,7 +2961,7 @@ const formatDateTime = settingsStore.formatDateTime
 }
 
 .form-input {
-  @apply w-full rounded-lg border border-gray-300 px-4 py-2 transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-blue-500;
+  @apply w-full rounded-lg border border-gray-300 px-4 py-2 transition-all duration-200 focus:border-transparent focus:ring-2 focus:ring-sky-400;
 }
 
 .btn {
@@ -2971,7 +2969,7 @@ const formatDateTime = settingsStore.formatDateTime
 }
 
 .btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+  @apply bg-sky-500 text-white hover:bg-sky-600 focus:ring-sky-400;
 }
 
 .btn-success {

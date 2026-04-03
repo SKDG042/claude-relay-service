@@ -115,7 +115,7 @@
                   <button
                     v-else
                     key="button"
-                    class="text-xs text-blue-500 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                    class="text-xs text-sky-500 transition-colors hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300"
                     @click="checkForUpdates()"
                   >
                     <i class="fas fa-sync-alt mr-1" />检查更新
@@ -128,7 +128,7 @@
               class="flex w-full items-center gap-3 px-4 py-3 text-left text-gray-700 transition-colors hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-700"
               @click="openChangePasswordModal"
             >
-              <i class="fas fa-key text-blue-500" />
+              <i class="fas fa-key text-sky-500" />
               <span>修改账户信息</span>
             </button>
 
@@ -155,9 +155,7 @@
     <div class="modal-content mx-auto flex max-h-[90vh] w-full max-w-md flex-col p-4 sm:p-6 md:p-8">
       <div class="mb-6 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <div
-            class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600"
-          >
+          <div class="bg-gradient-primary flex h-10 w-10 items-center justify-center rounded-xl">
             <i class="fas fa-key text-white" />
           </div>
           <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">修改账户信息</h3>

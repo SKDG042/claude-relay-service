@@ -43,7 +43,7 @@
                 <p class="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   <!-- 未激活状态 -->
                   <template v-if="apiKey.expirationMode === 'activation' && !apiKey.isActivated">
-                    <i class="fas fa-pause-circle mr-1 text-blue-500" />
+                    <i class="fas fa-pause-circle mr-1 text-sky-500" />
                     未激活
                     <span class="ml-2 text-xs font-normal text-gray-600">
                       (激活后
@@ -87,7 +87,7 @@
           <!-- 激活按钮（仅在未激活状态显示） -->
           <div v-if="apiKey.expirationMode === 'activation' && !apiKey.isActivated" class="mb-4">
             <button
-              class="w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-3 font-semibold text-white transition-all hover:from-blue-600 hover:to-blue-700 hover:shadow-lg"
+              class="bg-gradient-primary-r w-full rounded-lg px-4 py-3 font-semibold text-white transition-all hover:shadow-lg"
               @click="handleActivateNow"
             >
               <i class="fas fa-rocket mr-2" />
@@ -115,7 +115,7 @@
                 :class="[
                   'rounded-lg px-3 py-2 text-sm font-medium transition-all',
                   localForm.expireDuration === option.value
-                    ? 'bg-blue-500 text-white shadow-md'
+                    ? 'bg-sky-500 text-white shadow-md'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
                 ]"
                 @click="selectQuickOption(option.value)"
@@ -126,7 +126,7 @@
                 :class="[
                   'rounded-lg px-3 py-2 text-sm font-medium transition-all',
                   localForm.expireDuration === 'custom'
-                    ? 'bg-blue-500 text-white shadow-md'
+                    ? 'bg-sky-500 text-white shadow-md'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600'
                 ]"
                 @click="selectQuickOption('custom')"
@@ -157,11 +157,11 @@
           <!-- 预览新的过期时间 -->
           <div
             v-if="localForm.expiresAt !== apiKey.expiresAt"
-            class="rounded-lg border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 p-4 dark:border-blue-700 dark:from-blue-900/20 dark:to-indigo-900/20"
+            class="rounded-lg border border-sky-200 bg-gradient-to-r from-sky-50 to-pink-50 p-4 dark:border-sky-700 dark:from-sky-900/20 dark:to-pink-900/20"
           >
             <div class="flex items-center justify-between">
               <div>
-                <p class="mb-1 text-xs font-medium text-blue-700 dark:text-blue-400">
+                <p class="mb-1 text-xs font-medium text-sky-700 dark:text-sky-400">
                   <i class="fas fa-arrow-right mr-1" />
                   新的过期时间
                 </p>

@@ -16,7 +16,7 @@
             <!-- 排序选择器 -->
             <div class="group relative min-w-[160px]">
               <div
-                class="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-indigo-500 to-blue-500 opacity-0 blur transition duration-300 group-hover:opacity-20"
+                class="bg-gradient-primary-r absolute -inset-0.5 rounded-lg opacity-0 blur transition duration-300 group-hover:opacity-20"
               ></div>
               <CustomDropdown
                 v-model="accountsSortBy"
@@ -31,12 +31,12 @@
             <!-- 平台筛选器 -->
             <div class="group relative min-w-[140px]">
               <div
-                class="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 blur transition duration-300 group-hover:opacity-20"
+                class="bg-gradient-primary-r absolute -inset-0.5 rounded-lg opacity-0 blur transition duration-300 group-hover:opacity-20"
               ></div>
               <CustomDropdown
                 v-model="platformFilter"
                 icon="fa-server"
-                icon-color="text-blue-500"
+                icon-color="text-sky-500"
                 :options="platformOptions"
                 placeholder="选择平台"
                 @change="filterByPlatform"
@@ -150,11 +150,11 @@
                   @click="refreshVisibleBalances"
                 >
                   <div
-                    class="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 blur transition duration-300 group-hover:opacity-20"
+                    class="bg-gradient-primary-r absolute -inset-0.5 rounded-lg opacity-0 blur transition duration-300 group-hover:opacity-20"
                   ></div>
                   <i
                     :class="[
-                      'fas relative text-blue-500',
+                      'fas relative text-sky-500',
                       refreshingBalances ? 'fa-spinner fa-spin' : 'fa-wallet'
                     ]"
                   />
@@ -243,7 +243,7 @@
                   <div class="flex items-center">
                     <input
                       v-model="selectAllChecked"
-                      class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      class="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                       :indeterminate="isIndeterminate"
                       type="checkbox"
                       @change="handleSelectAll"
@@ -325,9 +325,7 @@
                             </div>
                             <div class="space-y-1 pt-1 text-gray-200 dark:text-gray-600">
                               <div class="flex items-center gap-2">
-                                <div
-                                  class="h-2 w-16 rounded bg-gradient-to-r from-blue-500 to-indigo-600"
-                                ></div>
+                                <div class="bg-gradient-primary-r h-2 w-16 rounded"></div>
                                 <span class="font-medium text-white dark:text-gray-900"
                                   >正常：请求正常处理</span
                                 >
@@ -360,7 +358,7 @@
                             </div>
                             <div class="space-y-1 text-gray-200 dark:text-gray-600">
                               <div class="flex items-start gap-2">
-                                <i class="fas fa-clock mt-[2px] text-[10px] text-blue-500"></i>
+                                <i class="fas fa-clock mt-[2px] text-[10px] text-sky-500"></i>
                                 <span class="font-medium text-white dark:text-gray-900"
                                   >5h 窗口：5小时使用量进度，到达重置时间后会自动归零。</span
                                 >
@@ -411,7 +409,7 @@
                                 >
                               </div>
                               <div class="flex items-start gap-2">
-                                <i class="fas fa-sync-alt mt-[2px] text-[10px] text-blue-500"></i>
+                                <i class="fas fa-sync-alt mt-[2px] text-[10px] text-sky-500"></i>
                                 <span class="font-medium text-white dark:text-gray-900"
                                   >到达重置时间后自动归零。</span
                                 >
@@ -483,7 +481,7 @@
                   <div class="flex items-center">
                     <input
                       v-model="selectedAccounts"
-                      class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      class="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                       type="checkbox"
                       :value="account.id"
                       @change="updateSelectAllState"
@@ -503,7 +501,7 @@
                     <div class="min-w-0">
                       <div class="flex items-center gap-2">
                         <div
-                          class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400"
+                          class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-sky-600 dark:text-gray-100 dark:hover:text-sky-400"
                           title="点击复制"
                           @click.stop="copyText(account.name)"
                         >
@@ -836,7 +834,7 @@
                 <td class="whitespace-nowrap px-3 py-4 text-sm">
                   <div v-if="account.usage && account.usage.daily" class="space-y-1">
                     <div class="flex items-center gap-2">
-                      <div class="h-2 w-2 rounded-full bg-blue-500" />
+                      <div class="h-2 w-2 rounded-full bg-sky-500" />
                       <span class="text-sm font-medium text-gray-900 dark:text-gray-100"
                         >{{ account.usage.daily.requests || 0 }} 次</span
                       >
@@ -880,7 +878,7 @@
                       v-if="
                         !(account.platform === 'gemini' && account.oauthProvider === 'antigravity')
                       "
-                      class="text-blue-500 hover:underline dark:text-blue-300"
+                      class="text-sky-500 hover:underline dark:text-sky-300"
                       @click="openBalanceScriptModal(account)"
                     >
                       配置余额脚本
@@ -1182,7 +1180,7 @@
                       <div class="rounded-lg bg-gray-50 p-2 dark:bg-gray-700/70">
                         <div class="flex items-center gap-2">
                           <span
-                            class="inline-flex min-w-[32px] justify-center rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-300"
+                            class="inline-flex min-w-[32px] justify-center rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-medium text-sky-600 dark:bg-sky-500/20 dark:text-sky-300"
                           >
                             {{ getCodexWindowLabel('secondary') }}
                           </span>
@@ -1256,7 +1254,7 @@
                 <td class="px-3 py-4 text-sm text-gray-600">
                   <div
                     v-if="formatProxyDisplay(account.proxy)"
-                    class="break-all rounded bg-blue-50 px-2 py-1 font-mono text-xs"
+                    class="break-all rounded bg-sky-50 px-2 py-1 font-mono text-xs"
                     :title="formatProxyDisplay(account.proxy)"
                   >
                     {{ formatProxyDisplay(account.proxy) }}
@@ -1442,7 +1440,7 @@
               <input
                 v-if="shouldShowCheckboxes"
                 v-model="selectedAccounts"
-                class="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                class="mt-1 h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                 type="checkbox"
                 :value="account.id"
                 @change="updateSelectAllState"
@@ -1462,7 +1460,7 @@
                             ? 'bg-gradient-to-br from-teal-500 to-emerald-600'
                             : account.platform === 'droid'
                               ? 'bg-gradient-to-br from-cyan-500 to-sky-600'
-                              : 'bg-gradient-to-br from-blue-500 to-blue-600'
+                              : 'bg-gradient-primary'
                 ]"
               >
                 <i
@@ -1486,7 +1484,7 @@
               </div>
               <div>
                 <h4
-                  class="cursor-pointer text-sm font-semibold text-gray-900 hover:text-blue-600 dark:hover:text-blue-400"
+                  class="cursor-pointer text-sm font-semibold text-gray-900 hover:text-sky-600 dark:hover:text-sky-400"
                   title="点击复制"
                   @click.stop="copyText(account.name || account.email)"
                 >
@@ -1520,7 +1518,7 @@
               <p class="text-xs text-gray-500 dark:text-gray-400">今日使用</p>
               <div class="space-y-1">
                 <div class="flex items-center gap-1.5">
-                  <div class="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                  <div class="h-1.5 w-1.5 rounded-full bg-sky-500" />
                   <p class="text-sm font-semibold text-gray-900 dark:text-gray-100">
                     {{ account.usage?.daily?.requests || 0 }} 次
                   </p>
@@ -1577,7 +1575,7 @@
             <div class="mt-1 text-xs">
               <button
                 v-if="!(account.platform === 'gemini' && account.oauthProvider === 'antigravity')"
-                class="text-blue-500 hover:underline dark:text-blue-300"
+                class="text-sky-500 hover:underline dark:text-sky-300"
                 @click="openBalanceScriptModal(account)"
               >
                 配置余额脚本
@@ -1782,7 +1780,7 @@
                 <div class="rounded-lg bg-gray-50 p-2 dark:bg-gray-700">
                   <div class="flex items-center gap-2">
                     <span
-                      class="inline-flex min-w-[32px] justify-center rounded-full bg-blue-100 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-300"
+                      class="inline-flex min-w-[32px] justify-center rounded-full bg-sky-100 px-2 py-0.5 text-[11px] font-medium text-sky-600 dark:bg-sky-500/20 dark:text-sky-300"
                     >
                       {{ getCodexWindowLabel('secondary') }}
                     </span>
@@ -1878,7 +1876,7 @@
 
             <button
               v-if="canViewUsage(account)"
-              class="flex flex-1 items-center justify-center gap-1 rounded-lg bg-indigo-50 px-3 py-2 text-xs text-indigo-600 transition-colors hover:bg-indigo-100"
+              class="flex flex-1 items-center justify-center gap-1 rounded-lg bg-sky-50 px-3 py-2 text-xs text-sky-600 transition-colors hover:bg-sky-100"
               @click="openAccountUsageModal(account)"
             >
               <i class="fas fa-chart-line" />
@@ -1940,7 +1938,7 @@
           <span class="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">每页显示</span>
           <select
             v-model="pageSize"
-            class="rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-700 transition-colors hover:border-gray-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500 sm:text-sm"
+            class="rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-700 transition-colors hover:border-gray-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500 sm:text-sm"
             @change="currentPage = 1"
           >
             <option v-for="size in pageSizeOptions" :key="size" :value="size">
@@ -1982,7 +1980,7 @@
             :class="[
               'rounded-md border px-3 py-1 text-xs font-medium transition-colors sm:text-sm',
               page === currentPage
-                ? 'border-blue-500 bg-blue-50 text-blue-600 dark:border-blue-400 dark:bg-blue-500/10 dark:text-blue-300'
+                ? 'border-sky-500 bg-sky-50 text-sky-600 dark:border-sky-400 dark:bg-sky-500/10 dark:text-sky-300'
                 : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
             ]"
             @click="currentPage = page"
@@ -2147,7 +2145,7 @@
                   其他
                 </th>
                 <th
-                  class="border border-gray-300 bg-blue-50 px-4 py-2 text-center font-bold dark:border-gray-600 dark:bg-blue-900/30"
+                  class="border border-gray-300 bg-sky-50 px-4 py-2 text-center font-bold dark:border-gray-600 dark:bg-sky-900/30"
                 >
                   合计
                 </th>
@@ -2189,12 +2187,12 @@
                   <span class="text-red-600 dark:text-red-400">{{ stat.other }}</span>
                 </td>
                 <td
-                  class="border border-gray-300 bg-blue-50 px-4 py-2 text-center font-bold dark:border-gray-600 dark:bg-blue-900/30"
+                  class="border border-gray-300 bg-sky-50 px-4 py-2 text-center font-bold dark:border-gray-600 dark:bg-sky-900/30"
                 >
                   {{ stat.total }}
                 </td>
               </tr>
-              <tr class="bg-blue-50 font-bold dark:bg-blue-900/30">
+              <tr class="bg-sky-50 font-bold dark:bg-sky-900/30">
                 <td class="border border-gray-300 px-4 py-2 dark:border-gray-600">合计</td>
                 <td class="border border-gray-300 px-4 py-2 text-center dark:border-gray-600">
                   <span class="text-green-600 dark:text-green-400">{{
@@ -4784,7 +4782,7 @@ const getSessionProgressBarClass = (status, account = null) => {
   // 根据状态返回不同的颜色类，包含防御性检查
   if (!status) {
     // 无状态信息时默认为蓝色
-    return 'bg-gradient-to-r from-blue-500 to-indigo-600'
+    return 'bg-gradient-primary-r'
   }
 
   // 检查账号是否处于限流状态
@@ -4811,7 +4809,7 @@ const getSessionProgressBarClass = (status, account = null) => {
     return 'bg-gradient-to-r from-yellow-500 to-orange-500'
   } else {
     // 正常状态（allowed 或其他） - 蓝色
-    return 'bg-gradient-to-r from-blue-500 to-indigo-600'
+    return 'bg-gradient-primary-r'
   }
 }
 
@@ -4842,7 +4840,7 @@ const getClaudeUsageWidth = (window) => {
 const getClaudeUsageBarClass = (window) => {
   const util = window?.utilization || 0
   if (util < 60) {
-    return 'bg-gradient-to-r from-blue-500 to-indigo-600'
+    return 'bg-gradient-primary-r'
   }
   if (util < 90) {
     return 'bg-gradient-to-r from-yellow-500 to-orange-500'

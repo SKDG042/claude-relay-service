@@ -18,7 +18,7 @@
               :class="[
                 'whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium',
                 activeTab === 'active'
-                  ? 'border-blue-500 text-blue-600'
+                  ? 'border-sky-500 text-sky-600'
                   : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-300'
               ]"
               @click="activeTab = 'active'"
@@ -35,7 +35,7 @@
               :class="[
                 'whitespace-nowrap border-b-2 px-1 py-2 text-sm font-medium',
                 activeTab === 'deleted'
-                  ? 'border-blue-500 text-blue-600'
+                  ? 'border-sky-500 text-sky-600'
                   : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-500 dark:hover:text-gray-300'
               ]"
               @click="loadDeletedApiKeys"
@@ -61,12 +61,12 @@
               <!-- 时间范围筛选 -->
               <div class="group relative min-w-[140px]">
                 <div
-                  class="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 blur transition duration-300 group-hover:opacity-20"
+                  class="bg-gradient-primary-r absolute -inset-0.5 rounded-lg opacity-0 blur transition duration-300 group-hover:opacity-20"
                 ></div>
                 <CustomDropdown
                   v-model="globalDateFilter.preset"
                   icon="fa-calendar-alt"
-                  icon-color="text-blue-500"
+                  icon-color="text-sky-500"
                   :options="timeRangeDropdownOptions"
                   placeholder="选择时间范围"
                   @change="handleTimeRangeChange"
@@ -236,13 +236,13 @@
               <!-- 批量编辑按钮 - 移到刷新按钮旁边 -->
               <button
                 v-if="selectedApiKeys.length > 0"
-                class="group relative flex items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 shadow-sm transition-all duration-200 hover:border-blue-300 hover:bg-blue-100 hover:shadow-md dark:border-blue-700 dark:bg-blue-900/30 dark:text-blue-300 dark:hover:bg-blue-900/50 sm:w-auto"
+                class="group relative flex items-center justify-center gap-2 rounded-lg border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-medium text-sky-700 shadow-sm transition-all duration-200 hover:border-sky-300 hover:bg-sky-100 hover:shadow-md dark:border-sky-700 dark:bg-sky-900/30 dark:text-sky-300 dark:hover:bg-sky-900/50 sm:w-auto"
                 @click="openBatchEditModal()"
               >
                 <div
-                  class="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-500 opacity-0 blur transition duration-300 group-hover:opacity-20"
+                  class="bg-gradient-primary-r absolute -inset-0.5 rounded-lg opacity-0 blur transition duration-300 group-hover:opacity-20"
                 ></div>
-                <i class="fas fa-edit relative text-blue-600 dark:text-blue-400" />
+                <i class="fas fa-edit relative text-sky-600 dark:text-sky-400" />
                 <span class="relative">编辑选中 ({{ selectedApiKeys.length }})</span>
               </button>
 
@@ -261,7 +261,7 @@
 
               <!-- 创建按钮 -->
               <button
-                class="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:from-blue-600 hover:to-blue-700 hover:shadow-lg sm:w-auto"
+                class="bg-gradient-primary-r flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:shadow-lg sm:w-auto"
                 @click.stop="openCreateApiKeyModal"
               >
                 <i class="fas fa-plus"></i>
@@ -300,7 +300,7 @@
                       <div class="flex items-center">
                         <input
                           v-model="selectAllChecked"
-                          class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          class="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                           :indeterminate="isIndeterminate"
                           type="checkbox"
                           @change="handleSelectAll"
@@ -453,7 +453,7 @@
                         <div class="flex items-center">
                           <input
                             v-model="selectedApiKeys"
-                            class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                            class="h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                             type="checkbox"
                             :value="key.id"
                             @change="updateSelectAllState"
@@ -467,7 +467,7 @@
                         <div class="min-w-0">
                           <!-- 名称 -->
                           <div
-                            class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400"
+                            class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-sky-600 dark:text-gray-100 dark:hover:text-sky-400"
                             title="点击复制"
                             @click.stop="copyText(key.name)"
                           >
@@ -586,7 +586,7 @@
                           <span
                             v-for="tag in key.tags || []"
                             :key="tag"
-                            class="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+                            class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-xs text-sky-800 dark:bg-sky-900/30 dark:text-sky-300"
                           >
                             {{ tag }}
                           </span>
@@ -628,7 +628,7 @@
                         <!-- 已加载状态 -->
                         <template v-else-if="getCachedStats(key.id)">
                           <span
-                            class="font-semibold text-blue-600 dark:text-blue-400"
+                            class="font-semibold text-sky-600 dark:text-sky-400"
                             style="font-size: 14px"
                           >
                             {{ getCachedStats(key.id).formattedCost || '$0.00' }}
@@ -860,7 +860,7 @@
                           <!-- 未激活状态 -->
                           <span
                             v-if="key.expirationMode === 'activation' && !key.isActivated"
-                            class="inline-flex items-center text-blue-600 dark:text-blue-400"
+                            class="inline-flex items-center text-sky-600 dark:text-sky-400"
                             style="font-size: 13px"
                           >
                             <i class="fas fa-pause-circle mr-1 text-xs" />
@@ -938,7 +938,7 @@
                             <span class="ml-1">模型</span>
                           </button>
                           <button
-                            class="rounded px-2 py-1 text-xs font-medium text-blue-600 transition-colors hover:bg-blue-50 hover:text-blue-900 dark:hover:bg-blue-900/20"
+                            class="rounded px-2 py-1 text-xs font-medium text-sky-600 transition-colors hover:bg-sky-50 hover:text-sky-900 dark:hover:bg-sky-900/20"
                             title="编辑"
                             @click="openEditApiKeyModal(key)"
                           >
@@ -1048,7 +1048,7 @@
                                       'rounded px-2 py-1 text-xs font-medium transition-colors',
                                       getApiKeyDateFilter(key.id).preset === option.value &&
                                       getApiKeyDateFilter(key.id).type === 'preset'
-                                        ? 'bg-white text-blue-600 shadow-sm dark:bg-gray-800'
+                                        ? 'bg-white text-sky-600 shadow-sm dark:bg-gray-800'
                                         : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
                                     ]"
                                     @click="setApiKeyDateFilterPreset(option.value, key.id)"
@@ -1092,7 +1092,7 @@
                                 暂无模型使用数据
                               </p>
                               <button
-                                class="ml-2 flex items-center gap-1 text-sm text-blue-500 transition-colors hover:text-blue-700"
+                                class="ml-2 flex items-center gap-1 text-sm text-sky-500 transition-colors hover:text-sky-700"
                                 title="重置筛选条件并刷新"
                                 @click="resetApiKeyDateFilter(key.id)"
                               >
@@ -1122,7 +1122,7 @@
                                     >{{ stat.model }}</span
                                   >
                                   <span
-                                    class="rounded-full bg-blue-50 px-2 py-1 text-xs text-gray-500 dark:bg-blue-900/30 dark:text-gray-400"
+                                    class="rounded-full bg-sky-50 px-2 py-1 text-xs text-gray-500 dark:bg-sky-900/30 dark:text-gray-400"
                                     >{{ stat.requests }} 次请求</span
                                   >
                                 </div>
@@ -1165,7 +1165,7 @@
                                     class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400"
                                   >
                                     <span class="flex items-center">
-                                      <i class="fas fa-arrow-up mr-1 text-blue-500" />
+                                      <i class="fas fa-arrow-up mr-1 text-sky-500" />
                                       输出:
                                     </span>
                                     <span class="font-medium">{{
@@ -1204,7 +1204,7 @@
                                 class="mt-3 h-2 w-full rounded-full bg-gray-200 dark:bg-gray-700"
                               >
                                 <div
-                                  class="h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 transition-all duration-500"
+                                  class="bg-gradient-primary-r h-2 rounded-full transition-all duration-500"
                                   :style="{
                                     width:
                                       calculateApiKeyModelPercentage(
@@ -1230,7 +1230,7 @@
                           <!-- 总计统计，仅在有数据时显示 -->
                           <div
                             v-if="apiKeyModelStats[key.id] && apiKeyModelStats[key.id].length > 0"
-                            class="mt-4 rounded-lg border border-indigo-100 bg-gradient-to-r from-indigo-50 to-purple-50 p-3 dark:border-indigo-700 dark:from-indigo-900/20 dark:to-purple-900/20"
+                            class="mt-4 rounded-lg border border-sky-100 bg-gradient-to-r from-sky-50 to-pink-50 p-3 dark:border-sky-700 dark:from-sky-900/20 dark:to-pink-900/20"
                           >
                             <div class="flex items-center justify-between text-sm">
                               <span
@@ -1285,14 +1285,14 @@
                   <input
                     v-if="shouldShowCheckboxes"
                     v-model="selectedApiKeys"
-                    class="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    class="mt-1 h-4 w-4 rounded border-gray-300 text-sky-500 focus:ring-sky-400"
                     type="checkbox"
                     :value="key.id"
                     @change="updateSelectAllState"
                   />
                   <div>
                     <h4
-                      class="cursor-pointer text-sm font-semibold text-gray-900 hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400"
+                      class="cursor-pointer text-sm font-semibold text-gray-900 hover:text-sky-600 dark:text-gray-100 dark:hover:text-sky-400"
                       title="点击复制"
                       @click.stop="copyText(key.name)"
                     >
@@ -1417,7 +1417,7 @@
                       globalDateFilter.type === 'custom' ? '累计统计' : '今日使用'
                     }}</span>
                     <button
-                      class="text-xs text-blue-600 hover:text-blue-800"
+                      class="text-xs text-sky-600 hover:text-sky-800"
                       @click="showUsageDetails(key)"
                     >
                       <i class="fas fa-chart-line mr-1" />详情
@@ -1609,7 +1609,7 @@
                       {{ key.expiresAt ? formatDate(key.expiresAt) : '永不过期' }}
                     </span>
                     <button
-                      class="inline-flex h-5 w-5 items-center justify-center rounded text-gray-300 transition-all duration-200 hover:bg-blue-50 hover:text-blue-500 dark:hover:bg-blue-900/20"
+                      class="inline-flex h-5 w-5 items-center justify-center rounded text-gray-300 transition-all duration-200 hover:bg-sky-50 hover:text-sky-500 dark:hover:bg-sky-900/20"
                       title="编辑过期时间"
                       @click.stop="startEditExpiry(key)"
                     >
@@ -1631,7 +1631,7 @@
                 <span
                   v-for="tag in key.tags"
                   :key="tag"
-                  class="inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+                  class="inline-flex items-center rounded-full bg-sky-100 px-2 py-0.5 text-xs text-sky-800 dark:bg-sky-900/30 dark:text-sky-300"
                 >
                   {{ tag }}
                 </span>
@@ -1640,7 +1640,7 @@
               <!-- 操作按钮 -->
               <div class="mt-3 flex gap-2 border-t border-gray-100 pt-3 dark:border-gray-600">
                 <button
-                  class="flex flex-1 items-center justify-center gap-1 rounded-lg bg-blue-50 px-3 py-1.5 text-xs text-blue-600 transition-colors hover:bg-blue-100 dark:bg-blue-900/30 dark:hover:bg-blue-900/50"
+                  class="flex flex-1 items-center justify-center gap-1 rounded-lg bg-sky-50 px-3 py-1.5 text-xs text-sky-600 transition-colors hover:bg-sky-100 dark:bg-sky-900/30 dark:hover:bg-sky-900/50"
                   @click="showUsageDetails(key)"
                 >
                   <i class="fas fa-chart-line" />
@@ -1699,7 +1699,7 @@
                 <span class="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">每页显示</span>
                 <select
                   v-model="pageSize"
-                  class="rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-700 transition-colors hover:border-gray-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500 sm:text-sm"
+                  class="rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-700 transition-colors hover:border-gray-300 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-sky-400 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-500 sm:text-sm"
                 >
                   <option v-for="size in pageSizeOptions" :key="size" :value="size">
                     {{ size }}
@@ -1742,7 +1742,7 @@
                   :class="[
                     'rounded-md px-2 py-1 text-xs font-medium sm:px-3 sm:text-sm',
                     page === currentPage
-                      ? 'bg-blue-600 text-white'
+                      ? 'bg-sky-500 text-white'
                       : 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
                   ]"
                   @click="currentPage = page"
@@ -1884,7 +1884,7 @@
                           </div>
                           <div class="min-w-0">
                             <div
-                              class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-blue-600 dark:text-gray-100 dark:hover:text-blue-400"
+                              class="cursor-pointer truncate text-sm font-semibold text-gray-900 hover:text-sky-600 dark:text-gray-100 dark:hover:text-sky-400"
                               title="点击复制"
                               @click.stop="copyText(key.name)"
                             >
@@ -1899,7 +1899,7 @@
                           <!-- Claude OAuth 绑定 -->
                           <div v-if="key.claudeAccountId" class="flex items-center gap-1 text-xs">
                             <span
-                              class="inline-flex items-center rounded bg-blue-100 px-1.5 py-0.5 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                              class="inline-flex items-center rounded bg-sky-100 px-1.5 py-0.5 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300"
                             >
                               <i class="fas fa-robot mr-1 text-[10px]" />
                               Claude OAuth
@@ -1939,7 +1939,7 @@
                       <!-- 创建者 -->
                       <td v-if="isLdapEnabled" class="px-3 py-3">
                         <div class="text-xs">
-                          <span v-if="key.createdBy === 'admin'" class="text-blue-600">
+                          <span v-if="key.createdBy === 'admin'" class="text-sky-600">
                             <i class="fas fa-user-shield mr-1 text-xs" />
                             管理员
                           </span>
@@ -1963,7 +1963,7 @@
                       <!-- 删除者 -->
                       <td class="px-3 py-3">
                         <div class="text-xs">
-                          <span v-if="key.deletedByType === 'admin'" class="text-blue-600">
+                          <span v-if="key.deletedByType === 'admin'" class="text-sky-600">
                             <i class="fas fa-user-shield mr-1 text-xs" />
                             {{ key.deletedBy }}
                           </span>
@@ -1987,7 +1987,7 @@
                       <!-- 费用 -->
                       <td class="whitespace-nowrap px-3 py-3 text-right" style="font-size: 13px">
                         <span
-                          class="font-medium text-blue-600 dark:text-blue-400"
+                          class="font-medium text-sky-600 dark:text-sky-400"
                           style="font-size: 13px"
                         >
                           ${{ (key.usage?.total?.cost || 0).toFixed(2) }}
@@ -5006,7 +5006,7 @@ onUnmounted(() => {
 }
 
 .api-key-date-picker :deep(.el-input__inner) {
-  @apply border-gray-300 bg-white focus:border-blue-500 focus:ring-blue-500;
+  @apply border-gray-300 bg-white focus:border-sky-400 focus:ring-sky-400;
 }
 
 .api-key-date-picker :deep(.el-range-separator) {
