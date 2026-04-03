@@ -230,6 +230,20 @@ const config = {
     maxTotalCostLimit: parseFloat(process.env.QUOTA_CARD_MAX_TOTAL_COST_LIMIT) || 1000 // 最大总额度（美元）
   },
 
+  // 🐘 PostgreSQL 使用日志（可选）
+  postgres: {
+    enabled: process.env.PG_ENABLED === 'true',
+    host: process.env.PG_HOST || 'localhost',
+    port: parseInt(process.env.PG_PORT) || 5432,
+    database: process.env.PG_DATABASE || 'claude_relay',
+    user: process.env.PG_USER || 'claude_relay',
+    password: process.env.PG_PASSWORD || '',
+    maxPoolSize: parseInt(process.env.PG_MAX_POOL_SIZE) || 20,
+    idleTimeoutMs: parseInt(process.env.PG_IDLE_TIMEOUT_MS) || 30000,
+    connectionTimeoutMs: parseInt(process.env.PG_CONNECTION_TIMEOUT_MS) || 5000,
+    retentionDays: parseInt(process.env.PG_RETENTION_DAYS) || 90
+  },
+
   // ⏱️ 上游错误自动暂停配置
   // 说明：此处是全局默认值。Claude 官方 OAuth 账号可在后台做账号级 503/5xx 覆盖，
   // 且可通过账号设置禁用 temp_unavailable（账号级策略优先于全局默认值）。

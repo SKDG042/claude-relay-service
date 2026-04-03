@@ -77,8 +77,19 @@ services:
       - DEBUG=${DEBUG:-false}
       - ENABLE_CORS=${ENABLE_CORS:-true}
       - TRUST_PROXY=${TRUST_PROXY:-true}
+
+      # 🐘 PostgreSQL 使用日志（可选）
+      - PG_ENABLED=${PG_ENABLED:-false}
+      - PG_HOST=postgres
+      - PG_PORT=5432
+      - PG_DATABASE=${PG_DATABASE:-claude_relay}
+      - PG_USER=${PG_USER:-claude_relay}
+      - PG_PASSWORD=${PG_PASSWORD:-}
+      - PG_MAX_POOL_SIZE=${PG_MAX_POOL_SIZE:-20}
+      - PG_RETENTION_DAYS=${PG_RETENTION_DAYS:-90}
     depends_on:
       - redis
+      - postgres
     networks:
       - claude-relay-network
     healthcheck:
@@ -104,6 +115,26 @@ services:
       - claude-relay-network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 🐘 PostgreSQL Database (Optional - for usage logs)
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    expose:
+      - "5432"
+    environment:
+      - POSTGRES_DB=${PG_DATABASE:-claude_relay}
+      - POSTGRES_USER=${PG_USER:-claude_relay}
+      - POSTGRES_PASSWORD=${PG_PASSWORD:-claude_relay_pass}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - claude-relay-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER:-claude_relay} -d ${PG_DATABASE:-claude_relay}"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -162,6 +193,8 @@ services:
       - monitoring
 
 volumes:
+  postgres_data:
+    driver: local
   prometheus_data:
     driver: local
   grafana_data:
