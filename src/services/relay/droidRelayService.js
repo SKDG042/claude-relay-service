@@ -1307,7 +1307,8 @@ class DroidRelayService {
           usageObject,
           model,
           accountId,
-          'droid'
+          'droid',
+          {}
         )
       } else if (accountId) {
         await redis.incrementAccountUsage(

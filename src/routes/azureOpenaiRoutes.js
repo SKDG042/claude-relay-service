@@ -88,7 +88,9 @@ class AtomicUsageReporter {
         cacheReadTokens,
         modelToRecord,
         accountId,
-        'azure-openai'
+        'azure-openai',
+        null,
+        {}
       )
 
       // 同步更新 Azure 账户的 lastUsedAt 和累计使用量

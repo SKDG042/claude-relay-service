@@ -83,7 +83,9 @@ async function* handleStreamResponse(response, model, apiKeyId, accountId) {
                   0,
                   model,
                   accountId,
-                  'gemini'
+                  'gemini',
+                  null,
+                  {}
                 )
                 usageRecorded = true
               }
@@ -105,7 +107,9 @@ async function* handleStreamResponse(response, model, apiKeyId, accountId) {
         0,
         model,
         accountId,
-        'gemini'
+        'gemini',
+        null,
+        {}
       )
     }
   }
@@ -161,7 +165,9 @@ async function sendAntigravityRequest({
       0,
       requestedModel,
       accountId,
-      'gemini'
+      'gemini',
+      null,
+      {}
     )
   }
 

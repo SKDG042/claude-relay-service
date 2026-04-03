@@ -612,7 +612,18 @@ class OpenAIResponsesRelayService {
             modelToRecord,
             account.id,
             'openai-responses',
-            serviceTier
+            serviceTier,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: true,
+              httpStatus: res.statusCode || 200,
+              apiKeyName: req.apiKey?.name,
+              serviceTier: serviceTier || null
+            }
           )
 
           logger.info(
@@ -734,7 +745,7 @@ class OpenAIResponsesRelayService {
         const totalTokens =
           usageData.total_tokens || totalInputTokens + outputTokens + cacheCreateTokens
 
-        const serviceTier = req._serviceTier || null
+        const serviceTier = null
         await apiKeyService.recordUsage(
           apiKeyData.id,
           actualInputTokens, // 传递实际输入（不含缓存）
@@ -744,7 +755,8 @@ class OpenAIResponsesRelayService {
           actualModel,
           account.id,
           'openai-responses',
-          serviceTier
+          serviceTier,
+          {}
         )
 
         logger.info(

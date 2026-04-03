@@ -540,7 +540,19 @@ router.post('/v1/chat/completions', authenticateApiKey, async (req, res) => {
               0, // cacheReadTokens
               model,
               account.id,
-              'gemini'
+              'gemini',
+              null,
+              {
+                requestId: req.requestId,
+                httpMethod: req.method,
+                endpoint: req.originalUrl,
+                clientIp: req.ip,
+                userAgent: req.get('User-Agent'),
+                isStream: true,
+                httpStatus: res.statusCode || 200,
+                requestDuration: Date.now() - startTime,
+                apiKeyName: req.apiKey?.name
+              }
             )
             logger.info(
               `📊 Recorded Gemini stream usage - Input: ${totalUsage.promptTokenCount}, Output: ${totalUsage.candidatesTokenCount}, Total: ${totalUsage.totalTokenCount}`
@@ -642,7 +654,19 @@ router.post('/v1/chat/completions', authenticateApiKey, async (req, res) => {
             0, // cacheReadTokens
             model,
             account.id,
-            'gemini'
+            'gemini',
+            null,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: false,
+              httpStatus: res.statusCode || 200,
+              requestDuration: Date.now() - startTime,
+              apiKeyName: req.apiKey?.name
+            }
           )
           logger.info(
             `📊 Recorded Gemini usage - Input: ${openaiResponse.usage.prompt_tokens}, Output: ${openaiResponse.usage.completion_tokens}, Total: ${openaiResponse.usage.total_tokens}`

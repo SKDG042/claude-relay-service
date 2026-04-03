@@ -299,13 +299,25 @@ async function handleChatCompletion(req, res, apiKeyData) {
           }
 
           // 使用新的 recordUsageWithDetails 方法来支持详细的缓存数据
+          const streamRequestContext = {
+            requestId: req.requestId,
+            httpMethod: req.method,
+            endpoint: req.originalUrl,
+            clientIp: req.ip,
+            userAgent: req.get('User-Agent'),
+            isStream: true,
+            httpStatus: res.statusCode || 200,
+            requestDuration: Date.now() - startTime,
+            apiKeyName: req.apiKey?.name
+          }
           apiKeyService
             .recordUsageWithDetails(
               apiKeyData.id,
               usageWithRequestMeta, // 传递 usage + 请求模式元信息（beta/speed）
               model,
               accountId,
-              accountType
+              accountType,
+              streamRequestContext
             )
             .then((costs) => {
               queueRateLimitUpdate(
@@ -452,13 +464,25 @@ async function handleChatCompletion(req, res, apiKeyData) {
           usageWithRequestMeta.request_speed = claudeRequest.speed.trim().toLowerCase()
         }
         // 使用新的 recordUsageWithDetails 方法来支持详细的缓存数据
+        const nonStreamRequestContext = {
+          requestId: req.requestId,
+          httpMethod: req.method,
+          endpoint: req.originalUrl,
+          clientIp: req.ip,
+          userAgent: req.get('User-Agent'),
+          isStream: false,
+          httpStatus: res.statusCode || 200,
+          requestDuration: Date.now() - startTime,
+          apiKeyName: req.apiKey?.name
+        }
         apiKeyService
           .recordUsageWithDetails(
             apiKeyData.id,
             usageWithRequestMeta, // 传递 usage + 请求模式元信息（beta/speed）
             claudeRequest.model,
             accountId,
-            accountType
+            accountType,
+            nonStreamRequestContext
           )
           .then((costs) => {
             queueRateLimitUpdate(

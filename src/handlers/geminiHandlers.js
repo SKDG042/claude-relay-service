@@ -586,7 +586,18 @@ async function handleMessages(req, res) {
               0,
               model,
               accountId,
-              'gemini'
+              'gemini',
+              null,
+              {
+                requestId: req.requestId,
+                httpMethod: req.method,
+                endpoint: req.originalUrl,
+                clientIp: req.ip,
+                userAgent: req.get('User-Agent'),
+                isStream: false,
+                httpStatus: res.statusCode || 200,
+                apiKeyName: req.apiKey?.name
+              }
             )
           }
         }
@@ -703,7 +714,18 @@ async function handleMessages(req, res) {
                 0,
                 model,
                 accountId,
-                'gemini'
+                'gemini',
+                null,
+                {
+                  requestId: req.requestId,
+                  httpMethod: req.method,
+                  endpoint: req.originalUrl,
+                  clientIp: req.ip,
+                  userAgent: req.get('User-Agent'),
+                  isStream: true,
+                  httpStatus: res.statusCode || 200,
+                  apiKeyName: req.apiKey?.name
+                }
               )
               .then(() => {
                 logger.info(
@@ -1720,7 +1742,18 @@ async function handleGenerateContent(req, res) {
           0,
           model,
           account.id,
-          'gemini'
+          'gemini',
+          null,
+          {
+            requestId: req.requestId,
+            httpMethod: req.method,
+            endpoint: req.originalUrl,
+            clientIp: req.ip,
+            userAgent: req.get('User-Agent'),
+            isStream: false,
+            httpStatus: res.statusCode || 200,
+            apiKeyName: req.apiKey?.name
+          }
         )
         logger.info(
           `📊 Recorded Gemini usage - Input: ${usage.promptTokenCount}, Output: ${usage.candidatesTokenCount}, Total: ${usage.totalTokenCount}`
@@ -2070,7 +2103,18 @@ async function handleStreamGenerateContent(req, res) {
             0,
             model,
             account.id,
-            'gemini'
+            'gemini',
+            null,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: true,
+              httpStatus: res.statusCode || 200,
+              apiKeyName: req.apiKey?.name
+            }
           )
           .then((costs) =>
             applyRateLimitTracking(
@@ -2424,7 +2468,18 @@ async function handleStandardGenerateContent(req, res) {
           0,
           model,
           accountId,
-          'gemini'
+          'gemini',
+          null,
+          {
+            requestId: req.requestId,
+            httpMethod: req.method,
+            endpoint: req.originalUrl,
+            clientIp: req.ip,
+            userAgent: req.get('User-Agent'),
+            isStream: false,
+            httpStatus: res.statusCode || 200,
+            apiKeyName: req.apiKey?.name
+          }
         )
         logger.info(
           `📊 Recorded Gemini usage - Input: ${usage.promptTokenCount}, Output: ${usage.candidatesTokenCount}, Total: ${usage.totalTokenCount}`
@@ -2866,7 +2921,18 @@ async function handleStandardStreamGenerateContent(req, res) {
             0,
             model,
             accountId,
-            'gemini'
+            'gemini',
+            null,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: true,
+              httpStatus: res.statusCode || 200,
+              apiKeyName: req.apiKey?.name
+            }
           )
           .then(() => {
             logger.info(

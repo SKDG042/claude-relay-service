@@ -499,7 +499,24 @@ async function handleMessagesRequest(req, res) {
               }
 
               apiKeyService
-                .recordUsageWithDetails(_apiKeyId, usageObject, model, usageAccountId, accountType)
+                .recordUsageWithDetails(
+                  _apiKeyId,
+                  usageObject,
+                  model,
+                  usageAccountId,
+                  accountType,
+                  {
+                    requestId: req.requestId,
+                    httpMethod: req.method,
+                    endpoint: req.originalUrl,
+                    clientIp: req.ip,
+                    userAgent: req.get('User-Agent'),
+                    isStream: true,
+                    httpStatus: res.statusCode || 200,
+                    requestDuration: Date.now() - startTime,
+                    apiKeyName: req.apiKey?.name
+                  }
+                )
                 .then((costs) => {
                   queueRateLimitUpdate(
                     _rateLimitInfo,
@@ -630,7 +647,18 @@ async function handleMessagesRequest(req, res) {
                   usageObject,
                   model,
                   usageAccountId,
-                  'claude-console'
+                  'claude-console',
+                  {
+                    requestId: req.requestId,
+                    httpMethod: req.method,
+                    endpoint: req.originalUrl,
+                    clientIp: req.ip,
+                    userAgent: req.get('User-Agent'),
+                    isStream: true,
+                    httpStatus: res.statusCode || 200,
+                    requestDuration: Date.now() - startTime,
+                    apiKeyName: req.apiKey?.name
+                  }
                 )
                 .then((costs) => {
                   queueRateLimitUpdate(
@@ -711,7 +739,19 @@ async function handleMessagesRequest(req, res) {
                 0,
                 result.model,
                 accountId,
-                'bedrock'
+                'bedrock',
+                null,
+                {
+                  requestId: req.requestId,
+                  httpMethod: req.method,
+                  endpoint: req.originalUrl,
+                  clientIp: req.ip,
+                  userAgent: req.get('User-Agent'),
+                  isStream: true,
+                  httpStatus: res.statusCode || 200,
+                  requestDuration: Date.now() - startTime,
+                  apiKeyName: req.apiKey?.name
+                }
               )
               .then((costs) => {
                 queueRateLimitUpdate(
@@ -838,7 +878,17 @@ async function handleMessagesRequest(req, res) {
               }
 
               apiKeyService
-                .recordUsageWithDetails(_apiKeyIdCcr, usageObject, model, usageAccountId, 'ccr')
+                .recordUsageWithDetails(_apiKeyIdCcr, usageObject, model, usageAccountId, 'ccr', {
+                  requestId: req.requestId,
+                  httpMethod: req.method,
+                  endpoint: req.originalUrl,
+                  clientIp: req.ip,
+                  userAgent: req.get('User-Agent'),
+                  isStream: true,
+                  httpStatus: res.statusCode || 200,
+                  requestDuration: Date.now() - startTime,
+                  apiKeyName: req.apiKey?.name
+                })
                 .then((costs) => {
                   queueRateLimitUpdate(
                     _rateLimitInfoCcr,
@@ -1284,7 +1334,18 @@ async function handleMessagesRequest(req, res) {
             usageObject,
             model,
             responseAccountId,
-            accountType
+            accountType,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: false,
+              httpStatus: res.statusCode || 200,
+              requestDuration: Date.now() - startTime,
+              apiKeyName: req.apiKey?.name
+            }
           )
 
           await queueRateLimitUpdate(

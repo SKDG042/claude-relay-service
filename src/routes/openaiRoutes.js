@@ -636,7 +636,19 @@ const handleResponses = async (req, res) => {
             actualModel,
             accountId,
             'openai',
-            req._serviceTier
+            req._serviceTier,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: false,
+              httpStatus: res.statusCode || 200,
+              requestDuration: Date.now() - req._startTime,
+              apiKeyName: req.apiKey?.name,
+              serviceTier: req._serviceTier || null
+            }
           )
 
           logger.info(
@@ -754,7 +766,19 @@ const handleResponses = async (req, res) => {
             modelToRecord,
             accountId,
             'openai',
-            req._serviceTier
+            req._serviceTier,
+            {
+              requestId: req.requestId,
+              httpMethod: req.method,
+              endpoint: req.originalUrl,
+              clientIp: req.ip,
+              userAgent: req.get('User-Agent'),
+              isStream: true,
+              httpStatus: res.statusCode || 200,
+              requestDuration: Date.now() - req._startTime,
+              apiKeyName: req.apiKey?.name,
+              serviceTier: req._serviceTier || null
+            }
           )
 
           logger.info(

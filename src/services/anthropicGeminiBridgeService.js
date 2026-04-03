@@ -2145,7 +2145,18 @@ async function handleAnthropicMessagesToGemini(req, res, { vendor, baseModel }) 
           0,
           effectiveModel,
           accountId,
-          'gemini'
+          'gemini',
+          null,
+          {
+            requestId: req.requestId,
+            httpMethod: req.method,
+            endpoint: req.originalUrl,
+            clientIp: req.ip,
+            userAgent: req.get('User-Agent'),
+            isStream: false,
+            httpStatus: res.statusCode || 200,
+            apiKeyName: req.apiKey?.name
+          }
         )
         await applyRateLimitTracking(
           req.rateLimitInfo,
@@ -2686,7 +2697,18 @@ async function handleAnthropicMessagesToGemini(req, res, { vendor, baseModel }) 
           0,
           effectiveModel,
           accountId,
-          'gemini'
+          'gemini',
+          null,
+          {
+            requestId: req.requestId,
+            httpMethod: req.method,
+            endpoint: req.originalUrl,
+            clientIp: req.ip,
+            userAgent: req.get('User-Agent'),
+            isStream: true,
+            httpStatus: res.statusCode || 200,
+            apiKeyName: req.apiKey?.name
+          }
         )
         await applyRateLimitTracking(
           req.rateLimitInfo,
